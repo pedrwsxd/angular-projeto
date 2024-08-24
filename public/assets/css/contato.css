@@ -1,0 +1,72 @@
+.formulario {
+    color: #FFF;
+    width: 100%;
+    height: 100vh;
+    display: flex; 
+}
+
+.container-contato {
+    height: auto;
+    width: 800px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 30px;
+    background: #FD44BB;
+    box-shadow: 10px 10px 10px #807c7e;
+}
+
+.container-contato h1{
+    text-align: center;
+    color: #fff;
+    font-family: "Teko";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+
+
+label {
+    font-size: 30px;
+    font-family: "Teko";
+    width: 300px;
+    display: inline-block;
+}
+
+
+.textearea-contato{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+}
+
+.textearea-contato textarea{
+    margin-left: 4px;
+}
+
+input {
+    width: 100px;
+    display: inline-block;
+}
+
+.input{
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.digito {
+    color: #FD44BB;
+}
+
+.bnt {
+    padding: 10px;
+    border-radius: 10px;
+    color: #FD44BB;
+    width: 229px;
+}

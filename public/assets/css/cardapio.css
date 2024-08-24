@@ -1,0 +1,71 @@
+#cardapio{
+    width: 100%;
+    height: 1270px;
+}
+
+.container-cardapio {
+    width: 100%;
+    height: 100vh;
+    max-width: 1180px;
+    margin: auto;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.titulo {
+    color: #FF3CB9;
+    text-align: center;
+    font-family: "Teko";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    padding-top: 90px;
+    
+}
+
+.sub-titulo {
+    color: #5A45A2;
+    width: 100%;
+    text-align: center;
+    font-family: "Sulphur Point";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+}
+
+.style-card-c{
+    width: 406px;
+    height: 507px;
+    border: 1px solid #FF3CB9;
+    padding: 14px 11px 15px 12px;
+}
+
+.card-cardapio{
+    width: 406px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-card-cardapio{
+    display: grid;
+    grid-template-columns: 410px 410px;
+    justify-content: space-between;
+    padding: 14px 11px 15px 12px;
+}
+
+.img-cadapio{
+    width: 100%;
+    height: 436px;
+    background-image: url(../img/icon/caminhaorosa.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 350px;
+    margin-top: -90px;
+    opacity: 0.5;
+}
