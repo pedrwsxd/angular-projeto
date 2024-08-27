@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ContatoComponent } from './contato/contato.component';
 import { CardapioComponent } from './cardapio/cardapio.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CardapioComponent } from './cardapio/cardapio.component';
     FooterComponent,
     InicioComponent,
     ContatoComponent,
-    CardapioComponent
+    CardapioComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
