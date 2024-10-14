@@ -1,23 +1,131 @@
+<section id="header">
+    <header>
+        <div class="header">
+
+            <div class="btn-computer">
+                <div class="container-header">
+                    <div class="logo-header">
+                        <img src="assets/img/logo.svg" alt="Logo da IceCream" width="243" height="90">
+                    </div>
+
+                    <div class="nav-computer">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Início</a>
+                                </li>
+
+                                <li>
+                                    <a routerLink="/cardapio" routerLinkActive="active"
+                                        ariaCurrentWhenActive="page">Cardápio </a>
+                                </li>
+
+                                <li>
+                                    <a href="/sobre">Sobre nós</a>
+                                </li>
+
+                                <li>
+                                    <a routerLink="/contato" routerLinkActive="active"
+                                        ariaCurrentWhenActive="page">Entre em contato</a>
+                                </li>
+                                <li>
+                                    <fa-icon [icon]="faShoppingCart"></fa-icon>
+                                </li>
+                            </ul>                          
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mobile">
+                <div class="logo-header" id="logo-header">
+                    <img src="assets/img/logo.svg" alt="Logo da IceCream" width="200" height="100">
+                </div>
+
+                <div class="btn-abrir toggle" id="abrir-menu">
+                    <img src="assets/img/icon/button/menu.svg" alt="Botão de abrir o menu" height="60" width="70">
+                </div>
+            </div>
+
+            <div class="btn-mobile" id="fechar-menu">
+                <div class="btn-fechar botão-fechar">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                        class="bi bi-x-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+
+                </div>
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a class="botão-fechar" routerLink="/" routerLinkActive="active"
+                                ariaCurrentWhenActive="page"> Início</a>
+                        </li>
+
+                        <li>
+                            <a class="botão-fechar" routerLink="/cardapio" routerLinkActive="active"
+                                ariaCurrentWhenActive="page">cardápio</a>
+                        </li>
+
+                        <li>
+                            <a class="botão-fechar" href="">Sobre nós</a>
+                        </li>
+
+                        <li>
+                            <a class="botão-fechar" routerLink="/contato" routerLinkActive="active"
+                                ariaCurrentWhenActive="page">Entre em contato</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="overflow-fechar"></div>
+            </div>
+
+
+        </div>
+    </header>
+</section>
+
 <section id="cardapio" class="cardapio">
+
     <div class="container-cardapio">
         <div class="titulo-cardapio">
-            <h1 class="titulo">Veja Nosso Cardápio</h1>
+            <h1 class="titulo">Cardápio</h1>
             <p class="sub-titulo">Delícias Crocantes e Geladas Para Todos os Gostos!</p>
         </div>
 
         <div class="container-card-cardapio">
-        <div class="card-cardapio card">
-            <img class="style-card-c" src="assets/img/icon/Cone-de-churros.png" alt="Foto do Cardápio">
-            <button class="button-style1 animacao1">Cone de churros</button>
-        </div>
+            <div class="card-cardapio card">
+                <img class="style-card-c" src="assets/img/icon/Cone-de-churros.png" alt="Foto do Cardápio">
+                <button class="button-style1 animacao1">Cone de churros</button>
+            </div>
 
-        <div class="card-cardapio card">
-            <img class="style-card-c" src="assets/img/icon/churros-tradicional.png" alt="Foto do Cardápio">
-            <button class="button-style1 animacao1">Churros Tradicional</button>
+            <div class="card-cardapio card">
+                <img class="style-card-c" src="assets/img/icon/churros-tradicional.png" alt="Foto do Cardápio">
+                <button class="button-style1 animacao1">Churros Tradicional</button>
+            </div>
         </div>
+        
+        <div class="cardapio">
+      <h2>Cardápio</h2>
+      <div class="produtos">
+        <div *ngFor="let produto of produtos" class="produto-card">
+          <h3>{{ produto.nome }}</h3>
+          <p>Preço: {{ produto.preco | currency:'BRL' }}</p>
+          <p>Tipo: {{ produto.tipo }}</p>
+          <p>Sabor: {{ produto.sabor }}</p>
+          <button (click)="addToCart(produto)">Adicionar ao Carrinho</button>
         </div>
-        <div class="img-cadapio">
-        </div>
+      </div>
+      <a [routerLink]="['/carrinho']" class="cart-icon">
+        <fa-icon [icon]="faShoppingCart"></fa-icon> Ir para o Carrinho
+      </a>
     </div>
+    </div>
+
 
 </section>

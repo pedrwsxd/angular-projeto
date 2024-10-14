@@ -1,0 +1,10 @@
+<h2>Seu Carrinho</h2>
+
+<div *ngFor="let item of items">
+  <h3>{{ item.nome }}</h3>
+  <p>Preço: R$ {{ item.preco }}</p>
+  <p>Tipo: {{ item.tipo }}</p>
+  <p>Sabor: {{ item.sabor }}</p>
+</div>
+
+<button (click)="clearCart()">Limpar carrinho</button>

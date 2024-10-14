@@ -1,4 +1,145 @@
-#cardapio{
+.container-header {
+    width: 100%;
+    height: 90px;
+    max-width: 1180px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.btn-computer {
+    max-width: auto;
+    min-width: 360px;
+    flex: 1;
+    height: 30%;
+    background-color: #FD44BB;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    display: none;
+}
+
+.btn-computer nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-computer nav ul li {
+    font-size: 22px;
+    font-family: "Teko";
+    font-weight: 300;
+    color: rgb(255, 251, 251);
+    padding: 30px;
+    transition: .5s;
+}
+
+.btn-computer nav ul li:hover {
+    transform: scale(1.1);
+}
+
+.btn-computer nav ul li a {
+    color: #ffffff;
+}
+
+.mobile {
+    max-width: auto;
+    min-width: 360px;
+    flex: 1;
+    height: 30%;
+    background-color: #FD44BB;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.toggle {
+    display: flex;
+    align-self: center;
+}
+
+
+.btn-mobile {
+    background: #F9E5C7;
+    height: 100vh;
+    width: 0;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.btn-fechar {
+    color: #c4c0c0;
+    padding: 20px 5%;
+}
+
+.menu-on {
+    width: 100%;
+    height: 100vh;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.menu-off {
+    width: 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.btn-mobile nav {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.btn-mobile nav ul li a {
+    color: #5A45A2;
+    font-weight: 300;
+    font-family: "Teko";
+    font-size: 2.50rem;
+    padding: 20px 4%;
+    display: block;
+}
+
+.btn-mobile nav ul li a:hover {
+    background-color: #e6e6e64e;
+    color: #414141;
+}
+
+h .overflow-fechar {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 8888;
+}
+
+
+@media (min-width: 748px) {
+
+    .btn-computer,
+    .nav-computer {
+        display: flex;
+    }
+
+    .mobile {
+        display: none;
+    }
+}
+
+#cardapio {
     width: 100%;
     height: 1270px;
 }
@@ -23,7 +164,7 @@
     font-weight: 700;
     line-height: 50px;
     padding-top: 90px;
-    
+
 }
 
 .sub-titulo {
@@ -37,28 +178,28 @@
     line-height: 50px;
 }
 
-.style-card-c{
+.style-card-c {
     width: 406px;
     height: 507px;
     border: 1px solid #FF3CB9;
     padding: 14px 11px 15px 12px;
 }
 
-.card-cardapio{
+.card-cardapio {
     width: 406px;
     height: 700px;
     display: flex;
     flex-direction: column;
 }
 
-.container-card-cardapio{
+.container-card-cardapio {
     display: grid;
     grid-template-columns: 410px 410px;
     justify-content: space-between;
     padding: 14px 11px 15px 12px;
 }
 
-.img-cadapio{
+.img-cadapio {
     width: 100%;
     height: 436px;
     background-size: contain;
@@ -67,4 +208,9 @@
     background-position-x: 350px;
     margin-top: -90px;
     opacity: 0.5;
+}
+
+.produtos{
+    display: flex;
+    flex-direction: row;
 }
