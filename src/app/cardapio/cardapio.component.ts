@@ -15,11 +15,11 @@ export class CardapioComponent implements OnInit {
 
   constructor(private produtoService: ProdutoService, private cartService: CartService) { }
 
-  ngOnInit() {
-    this.getProdutos(); // Obtém os produtos ao inicializar o componente
+  async ngOnInit() {
+   await this.getProdutos(); // Obtém os produtos ao inicializar o componente
   }
 
-  getProdutos() {
+ async getProdutos() {
     this.produtoService.getProdutos().subscribe((produtos: Produto[]) => {
       this.produtos = produtos; // Atribui os produtos recebidos à variável
     });
