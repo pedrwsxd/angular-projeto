@@ -16,7 +16,7 @@
                                 </li>
 
                                 <li>
-                                    <a  (click)="goToCardapio()" ariaCurrentWhenActive="page">Cardápio </a>
+                                    <a  (click)="goToCardapio()" ariaCurrentWhenActive="page" routerLinkActive="active" >Cardápio </a>
                                 </li>
 
                                 <li>
@@ -25,6 +25,9 @@
 
                                 <li>
                                     <a routerLink="/contato" routerLinkActive="active" ariaCurrentWhenActive="page">Entre em contato</a>
+                                </li>
+                                <li *ngIf="exibirIconeCarrinho" >
+                                    <fa-icon [icon]="faShoppingCart"></fa-icon>
                                 </li>
                             </ul>
                         </nav>
