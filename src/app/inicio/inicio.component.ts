@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class InicioComponent {
 
+  goToCardapio() {
+    window.location.href = '/cardapio';
+  }
 }

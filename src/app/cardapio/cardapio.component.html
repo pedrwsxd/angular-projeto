@@ -9,14 +9,17 @@
         <div class="container-card-cardapio">
             <div class="card-cardapio card" *ngFor="let produto of produtos">
                 <h1 class="nome-produto">{{ produto.nome }}</h1>
-                <img class="style-card-c" src="" alt="Foto do Cardápio">
+                <img class="style-card-c" src="{{ produto.imagemUrl }}" alt="Foto do Cardápio">
                 <h2>Preço: {{ produto.preco | currency:'BRL' }}</h2>
                 <h2>Tipo: {{ produto.tipo }}</h2>
                 <h2>Sabor: {{ produto.sabor }}</h2>
-                <button (click)="addToCart(produto)" class="button-style1 animacao1">Adicionar ao Carrinho</button>
-                
+                <button (click)="addToCart(produto)" class="button-style2 animacao1">Adicionar ao Carrinho</button>
+
                 <a [routerLink]="['/carrinho']" class="cart-icon">
-                    <fa-icon [icon]="faShoppingCart"></fa-icon> Ir para o Carrinho
+                    <button class="button-style1 animacao1">
+                        <fa-icon [icon]="faShoppingCart"></fa-icon>
+                        Ir para o Carrinho
+                    </button>
                 </a>
             </div>
 
