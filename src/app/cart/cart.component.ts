@@ -9,6 +9,7 @@ import { Produto } from '../models/produto';
 })
 export class CartComponent implements OnInit {
   items: Produto[] = [];
+produtos: any;
 
   constructor(private cartService: CartService) {}
 
