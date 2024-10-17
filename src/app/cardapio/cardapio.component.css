@@ -57,17 +57,23 @@
 
 .card-cardapio {
     width: 100%; 
-    height: 900px;
+    height: 1100px;
     display: flex;
     flex-direction: column;
 }
 
 .card-descricao {
     display: flex;
+    background-color: rgba(31, 31, 31, 0.7);
+    font-family: "Sulphur Point";
+    color: #f3f3f3;
+    padding: 10px;
+    border-radius: 0px 0px 30px 30px;
     flex-direction: column;
     width: 100%; 
     height: 400px;
 }
+
 
 .container-card-cardapio {
     display: grid;
