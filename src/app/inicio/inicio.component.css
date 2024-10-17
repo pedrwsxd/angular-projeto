@@ -149,10 +149,10 @@
     flex-direction: column;
 }
 
-.container-card-cardapio{
+.container-card-cardapio {
     display: grid;
-    grid-template-columns: 410px 410px;
-    justify-content: space-between;
+    grid-template-columns: 0.2fr 0.2fr; /* Ajustado para frações */
+    justify-content:  space-evenly;
     padding: 14px 11px 15px 12px;
 }
 
@@ -167,7 +167,14 @@
     opacity: 0.5;
 }
 
-@media (max-width: 410px) {
+@media (max-width: 720px) {
+
+    .container-card-cardapio {
+        display: grid;
+        grid-template-columns: 0.1fr; 
+        padding: 14px 11px 15px 12px;
+    }
+
     .video-background video {
         position: absolute;
         top: 50%;
