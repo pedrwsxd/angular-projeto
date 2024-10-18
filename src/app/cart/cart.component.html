@@ -1,10 +1,28 @@
-<h2>Seu Carrinho</h2>
+<div class="cart-container">
+  <h2 class="titulo">Meu Carrinho</h2>
 
-<div *ngFor="let item of items">
-  <h3>{{ item.nome }}</h3>
-  <p>Preço: R$ {{ item.preco }}</p>
-  <p>Tipo: {{ item.tipo }}</p>
-  <p>Sabor: {{ item.sabor }}</p>
+  <!-- Verifica se há itens no carrinho -->
+  <div *ngIf="carrinho.length > 0; else carrinhoVazio">
+    <div class="cart-item" *ngFor="let item of carrinho">
+      <div class="product-info">
+        <h4>{{ item.produto.nome }}</h4>
+        <p>{{ item.produto.descricao }}</p>
+        <p>Preço: R$ {{ item.produto.preco.toFixed(2) }}</p>
+        <p>Quantidade: {{ item.quantidade }}</p>
+      </div>
+      <div class="actions">
+        <button class="button-style3 animacao1" (click)="removerItem(item.produto)">Remover</button>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Total: R$ {{ calcularTotal() | number: '1.2-2' }}</h3>
+      <button class="button-style1 animacao1" (click)="finalizarCompra()">Finalizar Pedido</button>
+    </div>
+  </div>
+
+  <!-- Mensagem exibida quando o carrinho está vazio -->
+  <ng-template #carrinhoVazio>
+    <p>Seu carrinho está vazio.</p>
+  </ng-template>
 </div>
-
-<button (click)="clearCart()">Limpar carrinho</button>

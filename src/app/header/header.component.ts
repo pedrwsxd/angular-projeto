@@ -12,12 +12,14 @@ export class HeaderComponent {
   faShoppingCart = faShoppingCart;
 
   constructor(private router: Router) {
-   
     this.router.events.subscribe(() => {
       this.exibirIconeCarrinho = this.router.url === '/cardapio';
     });
   }
   goToCardapio() {
     window.location.href = '/cardapio';
+  }
+  goToCarrinho() {
+    this.router.navigate(['/carrinho']); // Usar o Router para navegação
   }
 }

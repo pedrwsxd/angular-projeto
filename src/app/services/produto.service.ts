@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { Produto } from '../models/produto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProdutoService {
-  private apiUrl = 'http://localhost:8080/produtos/listar';  // URL da sua API
+  private apiUrl = 'http://localhost:8080/produtos/listar'; // URL da sua API
 
   constructor(private http: HttpClient) {}
 

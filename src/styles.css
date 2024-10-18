@@ -82,6 +82,20 @@
     border: 1px #000000 solid;
 }
 
+.button-style3{
+  color: #FFF;
+  box-shadow: 0px 30px 60px -12px rgba(50, 50, 93, 0.25) inset, 0px 18px 36px -18px rgba(0, 0, 0, 0.30) inset;
+  margin-top: 40px;
+  width: 90px;
+  height: 50.825px;
+  font-family: "Teko";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-radius: 30.688px;
+  background: #ff2626;
+}
+
 .button-style2:hover{
     color: #000000;
     box-shadow: 0px 30px 60px -12px rgba(253, 68, 187, 1) inset, 0px 18px 36px -18px rgba(0, 0, 0, 0.30) inset;

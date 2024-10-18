@@ -2,7 +2,7 @@
     color: #FFF;
     width: 100%;
     height: 100vh;
-    display: flex; 
+    display: flex;
 }
 
 .container-contato {
@@ -15,7 +15,7 @@
     box-shadow: 10px 10px 10px #807c7e;
 }
 
-.container-contato h1{
+.container-contato h1 {
     text-align: center;
     color: #fff;
     font-family: "Teko";
@@ -35,7 +35,7 @@ label {
 }
 
 
-.textearea-contato{
+.textearea-contato {
     margin-top: 20px;
     width: 100%;
     display: flex;
@@ -45,7 +45,7 @@ label {
 
 }
 
-.textearea-contato textarea{
+.textearea-contato textarea {
     margin-left: 4px;
 }
 
@@ -54,7 +54,7 @@ input {
     display: inline-block;
 }
 
-.input{
+.input {
     width: 200px;
     border-radius: 5px;
     padding: 10px;

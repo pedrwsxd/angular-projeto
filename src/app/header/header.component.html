@@ -12,11 +12,12 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a  routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Início</a>
+                                    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Início</a>
                                 </li>
 
                                 <li>
-                                    <a  (click)="goToCardapio()" ariaCurrentWhenActive="page" routerLinkActive="active" >Cardápio </a>
+                                    <a (click)="goToCardapio()" ariaCurrentWhenActive="page"
+                                        routerLinkActive="active">Cardápio </a>
                                 </li>
 
                                 <li>
@@ -24,9 +25,10 @@
                                 </li>
 
                                 <li>
-                                    <a routerLink="/contato" routerLinkActive="active" ariaCurrentWhenActive="page">Entre em contato</a>
+                                    <a routerLink="/contato" routerLinkActive="active"
+                                        ariaCurrentWhenActive="page">Entre em contato</a>
                                 </li>
-                                <li *ngIf="exibirIconeCarrinho" >
+                                <li *ngIf="exibirIconeCarrinho" (click)="goToCarrinho()">
                                     <fa-icon [icon]="faShoppingCart"></fa-icon>
                                 </li>
                             </ul>
@@ -61,11 +63,13 @@
                 <nav>
                     <ul>
                         <li>
-                            <a class="botão-fechar" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"> Início</a>
+                            <a class="botão-fechar" routerLink="/" routerLinkActive="active"
+                                ariaCurrentWhenActive="page"> Início</a>
                         </li>
 
                         <li>
-                            <a class="botão-fechar" (click)="goToCardapio()" routerLinkActive="active" ariaCurrentWhenActive="page">cardápio</a>
+                            <a class="botão-fechar" (click)="goToCardapio()" routerLinkActive="active"
+                                ariaCurrentWhenActive="page">cardápio</a>
                         </li>
 
                         <li>
@@ -73,7 +77,8 @@
                         </li>
 
                         <li>
-                            <a class="botão-fechar" routerLink="/contato" routerLinkActive="active" ariaCurrentWhenActive="page">Entre em contato</a>
+                            <a class="botão-fechar" routerLink="/contato" routerLinkActive="active"
+                                ariaCurrentWhenActive="page">Entre em contato</a>
                         </li>
                     </ul>
                 </nav>

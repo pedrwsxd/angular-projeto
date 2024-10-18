@@ -11,13 +11,19 @@
                 <h1 class="nome-produto">{{ produto.nome }}</h1>
                 <img class="style-card-c" src="{{ produto.imagemUrl }}" alt="Foto do Cardápio">
                 <div class="card-descricao">
-                <h2>Preço: {{ produto.preco | currency:'BRL' }}</h2>
-                <h2>Tipo: {{ produto.tipo }}</h2>
-                <h2>Sabor: {{ produto.sabor }}</h2>
+                    <h2>Preço: {{ produto.preco | currency:'BRL' }}</h2>
+                    <h2>Tipo: {{ produto.tipo }}</h2>
+                    <h2>Sabor: {{ produto.sabor }}</h2>
                 </div>
-                <button (click)="addToCart(produto)" class="button-style2 animacao1">Adicionar ao Carrinho</button>
 
-                <a [routerLink]="['/carrinho']" class="cart-icon">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" [(ngModel)]="quantidades[produto.id]" min="0" />
+
+
+                <button (click)="adicionarAoCarrinho(produto)" class="button-style2 animacao1">Adicionar ao
+                    Carrinho</button>
+
+                <a (click)="goToCarrinho()" class="cart-icon">
                     <button class="button-style1 animacao1">
                         <fa-icon [icon]="faShoppingCart"></fa-icon>
                         Ir para o Carrinho
