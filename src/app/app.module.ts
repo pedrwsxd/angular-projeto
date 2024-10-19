@@ -12,6 +12,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CartService } from './services/cart.service';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    CartService 
   ],
   bootstrap: [AppComponent]
 })
