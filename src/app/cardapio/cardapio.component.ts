@@ -5,6 +5,7 @@ import { Produto } from '../models/produto';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-cardapio',
@@ -36,7 +37,8 @@ export class CardapioComponent implements OnInit {
     const quantidade = this.quantidades[produto.id];
     if (quantidade > 0) {
       this.cartService.adicionarAoCarrinho(produto, quantidade);
-      alert(`${quantidade} ${produto.nome} foi adicionado ao carrinho!`);
+
+      this.presentAlert(quantidade, produto.nome)
     } else {
       alert('A quantidade deve ser maior que 0.');
     }
@@ -44,5 +46,14 @@ export class CardapioComponent implements OnInit {
 
   goToCarrinho() {
     this.router.navigate(['/carrinho']);
+  }
+
+
+  presentAlert(quantidade: any, nome: any){
+    Swal.fire({
+      title: `${quantidade} ${nome} foi adicionado ao carrinho!`,
+      icon: 'success',
+      confirmButtonText: 'Confirmar'
+    })
   }
 }

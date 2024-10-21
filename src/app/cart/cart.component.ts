@@ -44,4 +44,7 @@ export class CartComponent implements OnInit {
     // Redireciona para uma página de confirmação ou para o início
     this.router.navigate(['/']);
   }
+
+
+  
 }
