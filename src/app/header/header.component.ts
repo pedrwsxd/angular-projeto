@@ -7,9 +7,17 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
+
 export class HeaderComponent {
+  isMenuOpen = false;
+
+toggleMobileMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+}
+
   exibirIconeCarrinho: boolean = false;
   faShoppingCart = faShoppingCart;
+menuVisible: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined;
 
   constructor(private router: Router) {
     this.router.events.subscribe(() => {

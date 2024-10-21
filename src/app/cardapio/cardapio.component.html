@@ -11,7 +11,7 @@
                 <h1 class="nome-produto">{{ produto.nome }}</h1>
                 <img class="style-card-c" src="{{ produto.imagemUrl }}" alt="Foto do Cardápio">
                 <div class="card-descricao">
-                    <div class="lado-esquerdo-descricao"></div>
+                    <div class="lado-esquerdo-descricao">
                     <h2>Preço: {{ produto.preco | currency:'BRL' }}</h2>
                     <h3>Tipo: {{ produto.tipo }}</h3>
                     <h3>Sabor: {{ produto.sabor }}</h3>

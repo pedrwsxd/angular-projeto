@@ -43,13 +43,14 @@
                     <img src="assets/img/logo.svg" alt="Logo da IceCream" width="200" height="100">
                 </div>
 
-                <div class="btn-abrir toggle" id="abrir-menu">
+                <div (click)="toggleMobileMenu()" 
+                class="btn-abrir toggle" id="abrir-menu">
                     <img src="assets/img/icon/button/menu.svg" alt="Botão de abrir o menu" height="60" width="70">
                 </div>
             </div>
 
-            <div class="btn-mobile" id="fechar-menu">
-                <div class="btn-fechar botão-fechar">
+            <div [ngClass]="isMenuOpen ? 'menu-on' : 'menu-off'" class="btn-mobile" id="fechar-menu">
+                <div  (click)="toggleMobileMenu()" class="btn-fechar botão-fechar">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                         class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -60,7 +61,7 @@
 
                 </div>
 
-                <nav>
+                <nav >
                     <ul>
                         <li>
                             <a class="botão-fechar" routerLink="/" routerLinkActive="active"
