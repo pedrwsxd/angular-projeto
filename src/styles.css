@@ -119,6 +119,16 @@
     transform: scale(1.1);
 }
 
+.swal2-title {
+  font-family: "Sulphur Point", sans-serif;
+}
+
+.swal2-confirm{
+  font-family: "Teko", sans-serif;
+  color: #f8f8f8;
+  background-color: #FD44BB;
+}
+
 
 ::-webkit-scrollbar {
   display: none;
