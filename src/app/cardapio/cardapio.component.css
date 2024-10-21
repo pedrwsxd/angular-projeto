@@ -63,14 +63,19 @@
 
 .card-descricao {
     display: flex;
-    background-color: rgba(31, 31, 31, 0.7);
+    background-color: rgba(31, 31, 31, 0.4);
     font-family: "Sulphur Point";
-    color: #f3f3f3;
+    color: #fdfdfd;
     padding: 10px;
     border-radius: 0px 0px 30px 30px;
     flex-direction: column;
     width: 100%;
-    height: 400px;
+    margin-top: 10px;
+    height: 150px;
+}
+
+.card-descricao h2{
+    font-size: 2rem;
 }
 
 
@@ -114,6 +119,7 @@ input[type="number"]:focus {
     /* Cor azul no foco */
     outline: none;
 }
+
 
 @media (max-width: 748px) {
 
