@@ -11,16 +11,21 @@
                 <h1 class="nome-produto">{{ produto.nome }}</h1>
                 <img class="style-card-c" src="{{ produto.imagemUrl }}" alt="Foto do Cardápio">
                 <div class="card-descricao">
+                    <div class="lado-esquerdo-descricao"></div>
                     <h2>Preço: {{ produto.preco | currency:'BRL' }}</h2>
                     <h3>Tipo: {{ produto.tipo }}</h3>
                     <h3>Sabor: {{ produto.sabor }}</h3>
+                    </div>
+                    
+                    <div class="lado-direito-descricao">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" [(ngModel)]="quantidades[produto.id]" min="0" />
+                    </div>
                 </div>
 
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" [(ngModel)]="quantidades[produto.id]" min="0" />
 
 
-                <button (click)="adicionarAoCarrinho(produto)" class="button-style2 animacao1">Adicionar ao
+                <button (click)="adicionarAoCarrinho(produto)" class="button-style1 animacao1">Adicionar ao
                     Carrinho</button>
 
                 </div>

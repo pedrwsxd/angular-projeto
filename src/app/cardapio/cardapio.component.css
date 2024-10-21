@@ -63,9 +63,11 @@
 
 .card-descricao {
     display: flex;
-    background-color: rgba(31, 31, 31, 0.4);
+    background-color: rgba(219, 219, 219, 0.7);
+    box-shadow: -1px 2px 10px #ca27cf;
+
     font-family: "Sulphur Point";
-    color: #fdfdfd;
+    color: #181616;
     padding: 10px;
     border-radius: 0px 0px 30px 30px;
     flex-direction: column;
@@ -75,7 +77,15 @@
 }
 
 .card-descricao h2{
-    font-size: 2rem;
+    font-size: 1.4rem;
+    margin: 10px;
+    color: #3b0ecf;
+}
+
+.card-descricao h3{
+    font-size: 1rem;
+    margin: 10px;
+    color: #3615a3;
 }
 
 
