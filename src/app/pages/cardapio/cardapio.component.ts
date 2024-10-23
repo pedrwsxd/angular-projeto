@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProdutoService } from '../services/produto.service';
-import { CartService } from '../services/cart.service';
-import { Produto } from '../models/produto';
+import { ProdutoService } from '../../services/produto.service';
+import { CartService } from '../../services/cart.service';
+import { Produto } from '../../models/produto';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContatoComponent } from './contato/contato.component';
-import { CardapioComponent } from './cardapio/cardapio.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { SobreComponent } from './sobre/sobre.component';
-import { CartComponent } from './cart/cart.component';
+import { ContatoComponent } from './pages/contato/contato.component';
+import { CardapioComponent } from './pages/cardapio/cardapio.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 
 const routes: Routes = [
