@@ -13,6 +13,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CartService } from './services/cart.service';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CartService } from './services/cart.service';
     ContatoComponent,
     CardapioComponent,
     SobreComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     FontAwesomeModule,
