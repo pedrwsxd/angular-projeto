@@ -11,9 +11,12 @@ import { CardapioComponent } from './pages/cardapio/cardapio.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartService } from './services/cart.service';
 import { LoginComponent } from './pages/login/login.component';
+import { DefaultLoginLayoutComponent } from './components/default-login-layout/default-login-layout.component';
+import { PrimaryInputComponent } from './components/primary-input/primary-input.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -26,9 +29,12 @@ import { LoginComponent } from './pages/login/login.component';
     CardapioComponent,
     SobreComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
+    PrimaryInputComponent,
+    ReactiveFormsModule,
+    DefaultLoginLayoutComponent,
     FontAwesomeModule,
     HttpClientModule,
     BrowserModule,
@@ -37,7 +43,8 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   providers: [
     provideClientHydration(),
-    CartService 
+    CartService
+    
   ],
   bootstrap: [AppComponent]
 })

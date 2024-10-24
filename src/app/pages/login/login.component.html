@@ -1,14 +1,29 @@
-<div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="login()">
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required>
-        </div>
-        <div>
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" [(ngModel)]="credentials.senha" required>
-        </div>
-        <button type="submit">Entrar</button>
+<app-default-login-layout
+    title="Entrar em sua conta"
+    primaryBtnText="Entrar"
+    secondaryBtnText="Cadastrar-se"
+    (submit)="login()"
+    (navigate)="navigate()"
+    [disablePrimaryBtn]="!loginForm.valid"
+>
+    <form [formGroup]="loginForm">
+        <app-primary-input
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="johndoe@gmail.com"
+        >
+            <img src="/assets/svg/email-icon.svg"/>
+        </app-primary-input>
+        <app-primary-input
+            formControlName="senha"
+            inputName="senha"
+            type="password"
+            label="senha"
+        >
+            <img src="/assets/svg/password-icon.svg"/>
+        </app-primary-input>
+        <span>Forgot password?</span>
     </form>
-</div>
+</app-default-login-layout>
