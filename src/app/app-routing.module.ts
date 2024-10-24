@@ -6,15 +6,16 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guard/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'contato', component: ContatoComponent},
-  { path: 'carrinho', component: CartComponent },
+  { path: 'contato', component: ContatoComponent,  canActivate: [authGuard]},
+  { path: 'carrinho', component: CartComponent, canActivate: [authGuard] },
   { path: 'sobre', component: SobreComponent},
   { path: 'cardapio', component: CardapioComponent},
-  { path: 'login', component: LoginComponent },
-  { path: '', component: InicioComponent}
+  { path: 'login', component: LoginComponent, },
+  { path: '', component: InicioComponent},
 ];
 
 @NgModule({

@@ -125,6 +125,9 @@ input[type="number"]:focus {
     outline: none;
 }
 
+.cart{
+    margin-bottom: 200px;
+}
 
 @media (max-width: 748px) {
 

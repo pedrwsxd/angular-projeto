@@ -1,0 +1,57 @@
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f0e3; /* Cor creme de fundo */
+    font-family: 'Arial', sans-serif; /* Fonte mais elegante */
+  }
+  
+  h2 {
+    color: #e91e63; /* Rosa vibrante para o título */
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 30px; /* Mais espaçamento interno */
+    border-radius: 10px; /* Bordas mais arredondadas */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+  }
+  
+  label {
+    margin-bottom: 8px;
+    color: #e91e63; /* Rosa para os labels */
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px; /* Mais espaçamento interno */
+    margin-bottom: 20px;
+    border: 1px solid #f8f0e3; /* Borda na cor creme */
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    padding: 12px;
+    background-color: #e91e63; /* Rosa vibrante para o botão */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #c2185b; /* Rosa mais escuro no hover */
+  }
+  
+  .error-message {
+    color: #d9534f; /* Cor vermelha para a mensagem de erro */
+    margin-bottom: 10px;
+  }

@@ -25,11 +25,11 @@ export class AuthService {
   }
 
   salvarToken(token: string): void {
-    localStorage.setItem(this.localStorageKey, token);
+    sessionStorage.setItem('token', token); // Salva no sessionStorage
   }
 
   obterToken(): string | null {
-    return localStorage.getItem(this.localStorageKey);
+    return sessionStorage.getItem('token'); // Obtém do sessionStorage
   }
 
   estaAutenticado(): boolean {
@@ -37,6 +37,12 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.localStorageKey);
+    sessionStorage.removeItem('token'); // Remove do sessionStorage
+  }
+
+  isAuthenticated(): boolean {
+    // Verifica se o token existe no armazenamento (sessionStorage ou localStorage)
+    const token = sessionStorage.getItem('token');
+    return !!token; // Retorna true se o token existir, caso contrário false
   }
 }
