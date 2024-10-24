@@ -7,6 +7,8 @@ import { SobreComponent } from './pages/sobre/sobre.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './guard/auth.guard';
+import { LoginAdmComponent } from './pages/admin/login-adm/login-adm.component';
+import { CardapioAdmComponent } from './pages/admin/cardapio-adm/cardapio-adm.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'sobre', component: SobreComponent},
   { path: 'cardapio', component: CardapioComponent},
   { path: 'login', component: LoginComponent, },
+  { path: 'admin', component: LoginAdmComponent},
+  { path: 'admin/produtos/listar', component: CardapioAdmComponent, canActivate: [authGuard]},
   { path: '', component: InicioComponent},
 ];
 

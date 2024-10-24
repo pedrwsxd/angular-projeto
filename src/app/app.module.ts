@@ -16,7 +16,10 @@ import { CartService } from './services/cart.service';
 import { LoginComponent } from './pages/login/login.component';
 import { DefaultLoginLayoutComponent } from './components/default-login-layout/default-login-layout.component';
 import { PrimaryInputComponent } from './components/primary-input/primary-input.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginAdmComponent } from './pages/admin/login-adm/login-adm.component';
+import { GerenciarAdmComponent } from './pages/admin/gerenciar-adm/gerenciar-adm.component';
+import { CardapioAdmComponent } from './pages/admin/cardapio-adm/cardapio-adm.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SobreComponent,
     CartComponent,
     LoginComponent,
+    LoginAdmComponent,
+    GerenciarAdmComponent,
+    CardapioAdmComponent,
   ],
   imports: [
     PrimaryInputComponent,
@@ -37,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DefaultLoginLayoutComponent,
     FontAwesomeModule,
     HttpClientModule,
+    RouterModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule
