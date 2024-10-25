@@ -15,6 +15,10 @@ export class LoginService {
   private handleLoginResponse(response: LoginResponse) {
     sessionStorage.setItem("token", response.token);
     sessionStorage.setItem("nome", response.nome);
+
+    if (response.roles) {
+      sessionStorage.setItem("roles", JSON.stringify(response.roles));
+    }
   }
 
   login(email: string, senha: string) {
@@ -27,5 +31,10 @@ export class LoginService {
     return this.httpClient.post<LoginResponse>(`${this.apiUrl}/register`, { nome, email, senha }).pipe(
       tap(this.handleLoginResponse)
     );
+  }
+
+  obterRoles(): string[] | null {
+    const roles = sessionStorage.getItem("roles");
+    return roles ? JSON.parse(roles) : null;
   }
 }

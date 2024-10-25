@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'admin', component: LoginAdmComponent},
   { path: 'admin/produtos/listar', component: CardapioAdmComponent, canActivate: [authGuard]},
   { path: '', component: InicioComponent},
+  {path: '**', redirectTo: ''} 
 ];
 
 @NgModule({

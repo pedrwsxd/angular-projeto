@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import {jwtDecode} from "jwt-decode"; // Importação correta
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly apiUrl = 'http://localhost:8080/auth/login'; // URL do endpoint de login
-  private localStorageKey = 'token';
+  private readonly tokenKey = 'token'; // Chave de armazenamento do token no sessionStorage
 
   constructor(private http: HttpClient) { }
 
@@ -25,24 +26,48 @@ export class AuthService {
   }
 
   salvarToken(token: string): void {
-    sessionStorage.setItem('token', token); // Salva no sessionStorage
+    sessionStorage.setItem(this.tokenKey, token); // Salva o token no sessionStorage
   }
 
   obterToken(): string | null {
-    return sessionStorage.getItem('token'); // Obtém do sessionStorage
+    if (typeof sessionStorage !== 'undefined') {
+      return sessionStorage.getItem('token');
+    } else {
+      console.warn('sessionStorage não está disponível.');
+      return null;
+    }
   }
 
   estaAutenticado(): boolean {
-    return this.obterToken() !== null;
+    return this.obterToken() !== null; // Verifica se o token existe no armazenamento
   }
 
   logout(): void {
-    sessionStorage.removeItem('token'); // Remove do sessionStorage
+    sessionStorage.removeItem(this.tokenKey); // Remove o token do sessionStorage
+  }
+
+  getUserRoles(): string[] {
+    const token = this.obterToken();
+    if (!token) return [];
+    
+    try {
+      const decodedToken: any = jwtDecode(token); // Decodifica o token
+      return decodedToken.roles || []; // Retorna os roles se existirem
+    } catch (error) {
+      console.error('Erro ao decodificar o token:', error); // Tratamento de erro ao decodificar o token
+      return [];
+    }
+  }
+
+  isAdmin(): boolean {
+    return this.getUserRoles().includes('ROLE_ADMIN'); // Verifica se o usuário tem o role de admin
+  }
+
+  isClient(): boolean {
+    return this.getUserRoles().includes('ROLE_CLIENTE'); // Verifica se o usuário tem o role de cliente
   }
 
   isAuthenticated(): boolean {
-    // Verifica se o token existe no armazenamento (sessionStorage ou localStorage)
-    const token = sessionStorage.getItem('token');
-    return !!token; // Retorna true se o token existir, caso contrário false
+    return !!this.obterToken(); // Verifica se o token está presente e válido
   }
 }

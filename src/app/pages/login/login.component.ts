@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +35,15 @@ export class LoginComponent implements OnInit {
       const { email, senha } = this.loginForm.value;
       this.loginService.login(email, senha).subscribe(
         () => {
-          this.router.navigate([this.returnUrl]);
+          const roles = this.loginService.obterRoles() || [];
+
+          if (roles.includes('ROLE_ADMIN')) {
+            this.router.navigate(['/admin/produtos/listar']);
+          } else if (roles.includes('ROLE_CLIENTE')) {
+            this.router.navigate(['/cardapio']);
+          } else {
+            this.router.navigate([this.returnUrl]);
+          }
         },
         (error) => {
           console.error('Erro ao fazer login:', error);

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginAdmComponent {
   loginForm!: FormGroup;
-  public goAdm: string = '/admin/gerenciar';
+  public goAdm: string = '/admin/produtos/listar';
 
   constructor(
     private loginService: LoginService,
@@ -21,7 +21,7 @@ export class LoginAdmComponent {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.goAdm = params['goAdm'] || '/admin/gerenciar';
+      this.goAdm = params['goAdm'] || '/admin/produtos/listar';
     });
 
     this.loginForm = this.fb.group({
