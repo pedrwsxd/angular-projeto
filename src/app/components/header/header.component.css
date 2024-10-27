@@ -136,6 +136,10 @@ h .overflow-fechar {
   flex-direction: row;
 }
 
+.user-auth a {
+  font-size: 15px;
+}
+
 .user-menu {
   position: relative;
 }

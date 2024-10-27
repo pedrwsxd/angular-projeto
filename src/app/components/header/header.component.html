@@ -20,13 +20,12 @@
                                         routerLinkActive="active">Cardápio </a>
                                 </li>
 
-                                <li>
-                                    <a href="/sobre">Sobre nós</a>
+                                <li> 
+                                    <a (click)="goToSobre()">Sobre nós</a>
                                 </li>
 
                                 <li>
-                                    <a routerLink="/contato" routerLinkActive="active"
-                                        ariaCurrentWhenActive="page">Entre em contato</a>
+                                    <a (click)="goToContato()">Entre em contato</a>
                                 </li>
                                 <li *ngIf="exibirIconeCarrinho" (click)="goToCarrinho()">
                                     <fa-icon [icon]="faShoppingCart"></fa-icon>

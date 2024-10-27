@@ -60,6 +60,19 @@ export class AuthService {
     }
   }
 
+  obterIdDoUsuario(): number | null {
+    const token = this.obterToken();
+    if (!token) return null;
+
+    try {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.id || null;
+    } catch (error) {
+      console.error('Erro ao decodificar o token para obter o ID do usuário:', error);
+      return null;
+    }
+  }
+
   isAdminAsync(): Observable<boolean> {
     const token = this.obterToken();
     if (!token) return of(false);

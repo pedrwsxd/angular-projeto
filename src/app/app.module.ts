@@ -26,6 +26,7 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
 import { SignupComponent } from './pages/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MeuPerfilComponent } from './pages/meu-perfil/meu-perfil.component';
 
 
 
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GerenciarAdmComponent,
     AdminCardapioComponent,
     ProdutoAddComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    MeuPerfilComponent
   
   ],
   imports: [

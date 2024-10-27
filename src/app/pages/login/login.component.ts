@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
           if (roles.includes('ROLE_ADMIN')) {
             this.router.navigate(['admin/gerenciar/produtos']).then(() => {
-              
+              window.location.reload(); 
             });
           } else if (roles.includes('ROLE_CLIENTE')) {
             this.router.navigate(['/']).then(() => {
@@ -60,6 +60,8 @@ export class LoginComponent implements OnInit {
       );
     }
   }
+
+  
 
   navigate() {
     this.router.navigate(["signup"]);

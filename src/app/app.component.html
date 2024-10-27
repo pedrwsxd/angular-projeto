@@ -1,7 +1,10 @@
 <app-header></app-header>
 
 <main>
-    <router-outlet></router-outlet>
+    <div [@routeAnimation]="getDepth(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
 </main>
+
 
 <app-footer></app-footer>

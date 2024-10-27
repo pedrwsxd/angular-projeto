@@ -53,10 +53,18 @@ toggleMobileMenu() {
     this.router.navigate(['/']);
   }
 
+  goToContato(){
+    window.location.href = '/contato';
+  }
+
+  goToSobre(){
+    window.location.href = '/sobre';
+  }
+
   goToCardapio() {
     window.location.href = '/cardapio';
   }
   goToCarrinho() {
-    this.router.navigate(['/carrinho']); // Usar o Router para navegação
+    this.router.navigate(['/carrinho']); 
   }
 }

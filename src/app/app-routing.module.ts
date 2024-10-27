@@ -6,13 +6,15 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
-import { authGuard } from './guard/auth.guard';
+
 import { AdminCardapioComponent } from './pages/admin/admin-cardapio/admin-cardapio.component';
 import { ProdutoAddComponent } from './pages/admin/produto-add/produto-add.component';
-import { adminGuard } from './guard/admin.guard';
+
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
-import { AdminAccessResolver } from './services/adm/admin-access-resolver.service';
 import { SignupComponent } from './pages/signup/signup.component';
+import { adminGuard } from './guard/admin.guard';
+import { authGuard } from './guard/auth.guard';
+import { MeuPerfilComponent } from './pages/meu-perfil/meu-perfil.component';
 
 
 
@@ -26,8 +28,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent,},
   { path: 'admin/gerenciar/produtos', component: AdminCardapioComponent, canActivate: [adminGuard]},
   { path: 'admin/gerenciar/produtos/cadastrar', component: ProdutoAddComponent, canActivate: [adminGuard]},
+  { path: 'meu-perfil', component: MeuPerfilComponent},
   { path: '', component: InicioComponent},
-  {path: '**', redirectTo: ''} 
+
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+<div class="scroll">
+    <div class="container">
+        <h1>
+            Meu perfil
+        </h1>
+        <div class="usuario-card">
+            <ul>
+                <li>
+                    <h3>Nome Completo: </h3>
+                    <p>{{ usuario.nome | titlecase }}</p>
+                </li>
+                <li>
+                    <h2>Informações pessoais</h2>
+                </li>
+                <li>
+                    <h3>Email: </h3>
+                    <p>{{usuario.email}}</p>
+                </li>
+                <li>
+                    <h3>Telefone: </h3>
+                    <p>{{usuario.telefone}}</p>
+                </li>
+            </ul>
+            <div class="usuario-actions">
+                <ion-button fill="outline" shape="round" [routerLink]="['/usuarios/listar']"
+                    color="primary">Voltar</ion-button>
+            </div>
+        </div>
+    </div>
