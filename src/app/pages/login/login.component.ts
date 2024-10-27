@@ -38,11 +38,17 @@ export class LoginComponent implements OnInit {
           const roles = this.loginService.obterRoles() || [];
 
           if (roles.includes('ROLE_ADMIN')) {
-            this.router.navigate(['/admin/produtos/listar']);
+            this.router.navigate(['admin/gerenciar/produtos']).then(() => {
+              window.location.reload(); 
+            });
           } else if (roles.includes('ROLE_CLIENTE')) {
-            this.router.navigate(['/cardapio']);
+            this.router.navigate(['/cardapio']).then(() => {
+              window.location.reload(); 
+            });
           } else {
-            this.router.navigate([this.returnUrl]);
+            this.router.navigate([this.returnUrl]).then(() => {
+              window.location.reload(); 
+            });
           }
         },
         (error) => {

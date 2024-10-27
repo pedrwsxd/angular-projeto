@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import {jwtDecode} from "jwt-decode"; // Importação correta
 
 @Injectable({
@@ -56,6 +56,19 @@ export class AuthService {
     } catch (error) {
       console.error('Erro ao decodificar o token:', error); // Tratamento de erro ao decodificar o token
       return [];
+    }
+  }
+
+  isAdminAsync(): Observable<boolean> {
+    const token = this.obterToken();
+    if (!token) return of(false);
+
+    try {
+      const decodedToken: any = jwtDecode(token);
+      return of(decodedToken.roles.includes('ROLE_ADMIN'));
+    } catch (error) {
+      console.error('Erro ao decodificar o token:', error);
+      return of(false);
     }
   }
 

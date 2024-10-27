@@ -20,7 +20,10 @@ export class LoginService {
       sessionStorage.setItem("roles", JSON.stringify(response.roles));
     }
   }
+    
+  
 
+  
   login(email: string, senha: string) {
     return this.httpClient.post<LoginResponse>(`${this.apiUrl}/login`, { email, senha }).pipe(
       tap(this.handleLoginResponse)

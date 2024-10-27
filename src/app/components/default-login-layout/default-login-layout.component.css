@@ -25,12 +25,14 @@ main {
         padding: 0 35px;
 
         img {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         h2 {
+            font-family: "teko";
+            color: #611846;
             font-size: 20px;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 45px;
         }
 
@@ -50,7 +52,7 @@ main {
                 width: 100%;
 
                 font-size: 14px;
-                color: #EEEEEE;
+                color: #000000;
                 font-weight: 400;
                 text-transform: uppercase;
 
@@ -76,14 +78,15 @@ main {
                 }
     
                 &.btn-primary {
-                    background-color: #7001FD;
+                    background-color: #8346A6;
                     color: white;
                     box-shadow:0px 8px 12px rgba(148.23004603385925, 64.33935597538948, 255, 0.20000000298023224);
                 }
     
                 &.btn-secondary {
-                    border: 1px solid #7001FD;
-                    color: #7001FD;
+                    border: 1px solid #8346A6;
+                    color: #8346A6;
+                    margin-bottom: 200px;
                 }
             }
         }

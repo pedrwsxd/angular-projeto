@@ -1,0 +1,44 @@
+<div class="admin-cardapio">
+  
+  <section id="cardapio" class="cardapio">
+    
+    <div class="container-cardapio">
+      <div class="titulo-cardapio">
+        <h1 class="titulo">Administração do Cardápio</h1>
+
+        <button class="button-style2 button-add animacao1" (click)="adicionarProduto()">Adicionar Produto</button>
+        </div>
+        
+        <div class="container-card-cardapio">
+            <div class="card-cardapio card" *ngFor="let produto of produtos">
+                <h1 class="nome-produto">{{ produto.nome }}</h1>
+                <img class="style-card-c" src="{{ produto.imagemUrl }}" alt="Foto do Cardápio">
+                <div class="card-descricao">
+                    <div class="lado-esquerdo-descricao">
+                      <h2> ID: {{ produto.id }}</h2>
+                    <h3> Preço: {{ produto.preco | currency:'BRL' }}</h3>
+                    <h3>Tipo: {{ produto.tipo }}</h3>
+                    <h3>Sabor: {{ produto.sabor }}</h3>
+                </div>
+                
+              </div>
+              
+              <button class="button-style1 animacao1" (click)="deletarProduto(produto.id)">Deletar</button>
+                                    
+            </div>
+            
+        </div>
+  
+        </div>
+
+
+
+        
+
+</section>
+  
+          
+
+    
+   
+

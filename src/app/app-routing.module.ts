@@ -7,18 +7,23 @@ import { SobreComponent } from './pages/sobre/sobre.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './guard/auth.guard';
-import { LoginAdmComponent } from './pages/admin/login-adm/login-adm.component';
-import { CardapioAdmComponent } from './pages/admin/cardapio-adm/cardapio-adm.component';
+import { AdminCardapioComponent } from './pages/admin/admin-cardapio/admin-cardapio.component';
+import { ProdutoAddComponent } from './pages/admin/produto-add/produto-add.component';
+import { adminGuard } from './guard/admin.guard';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { AdminAccessResolver } from './services/adm/admin-access-resolver.service';
+
 
 
 const routes: Routes = [
+  { path: 'unauthorized', component: UnauthorizedComponent},
   { path: 'contato', component: ContatoComponent,  canActivate: [authGuard]},
   { path: 'carrinho', component: CartComponent, canActivate: [authGuard] },
   { path: 'sobre', component: SobreComponent},
   { path: 'cardapio', component: CardapioComponent},
   { path: 'login', component: LoginComponent, },
-  { path: 'admin', component: LoginAdmComponent},
-  { path: 'admin/produtos/listar', component: CardapioAdmComponent, canActivate: [authGuard]},
+  { path: 'admin/gerenciar/produtos', component: AdminCardapioComponent, resolve: { adminAccess: AdminAccessResolver }},
+  { path: 'admin/gerenciar/produtos/cadastrar', component: ProdutoAddComponent, resolve: { adminAccess: AdminAccessResolver }},
   { path: '', component: InicioComponent},
   {path: '**', redirectTo: ''} 
 ];

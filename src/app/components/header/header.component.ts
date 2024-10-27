@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ toggleMobileMenu() {
 
   exibirIconeCarrinho: boolean = false;
   faShoppingCart = faShoppingCart;
-menuVisible: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined;
+  faUser = faUser;
+  menuVisible: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined;
 
   constructor(private router: Router) {
     this.router.events.subscribe(() => {

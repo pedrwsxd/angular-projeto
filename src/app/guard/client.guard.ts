@@ -10,7 +10,7 @@ export const clientGuard: CanActivateFn = (route, state) => {
   if (authService.isClient()) {
     return true;
   } else {
-    router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    router.navigate(['/unauthorized']);
     return false;
   }
 };

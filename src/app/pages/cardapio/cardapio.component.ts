@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../../services/produto.service';
 import { CartService } from '../../services/cart.service';
 import { Produto } from '../../models/produto';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2'
@@ -14,6 +14,7 @@ import Swal from 'sweetalert2'
 })
 export class CardapioComponent implements OnInit {
   faShoppingCart = faShoppingCart;
+  
   produtos$: Observable<Produto[]>; // Utiliza o Observable do serviço
   quantidades: { [produtoId: number]: number } = {};
 
