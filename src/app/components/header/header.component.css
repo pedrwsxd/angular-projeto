@@ -131,6 +131,10 @@ h .overflow-fechar {
   z-index: 8888;
 }
 
+.user-auth {
+  display: flex;
+  flex-direction: row;
+}
 
 .user-menu {
   position: relative;
@@ -139,33 +143,35 @@ h .overflow-fechar {
 .user-menu .dropdown {
   display: none;
   position: absolute;
-  top: 100%; 
+  top: 100%; /* Coloca o dropdown abaixo do ícone */
   left: 0;
   background-color: rgb(0, 0, 0);
   border: 1px solid #ddd;
   padding: 10px;
-  width: 150px; 
+  width: 150px; /* Defina uma largura apropriada */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .user-menu:hover .dropdown {
   display: block;
 }
 
+/* Estilização dos links no dropdown */
 .user-menu .dropdown a {
   display: block;
   padding: 8px;
-  color: #000000;
+  color: #333;
   text-decoration: none;
   font-size: 14px;
 }
 
 .user-menu .dropdown a:hover {
-  background-color: #f5f5f546;
+  background-color: #f5f5f528;
   color: #007bff;
 }
+
 
 @media (min-width: 748px) {
 

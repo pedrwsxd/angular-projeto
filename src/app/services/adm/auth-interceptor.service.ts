@@ -8,7 +8,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const token = this.authService.obterToken();
-    if (token) {
+    const roles = this.authService.getUserRoles(); // Remove os parênteses extras
+
+    // Verifica se o usuário é admin antes de adicionar o token
+    const isAdmin = roles?.includes('ROLE_ADMIN');
+
+    if (token && isAdmin) {
       const cloned = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${token}`)
       });

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import {jwtDecode} from "jwt-decode"; // Importação correta
 
 @Injectable({
@@ -9,6 +9,7 @@ import {jwtDecode} from "jwt-decode"; // Importação correta
 export class AuthService {
   private readonly apiUrl = 'http://localhost:8080/auth/login'; // URL do endpoint de login
   private readonly tokenKey = 'token'; // Chave de armazenamento do token no sessionStorage
+  authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,6 @@ export class AuthService {
     if (typeof sessionStorage !== 'undefined') {
       return sessionStorage.getItem('token');
     } else {
-      console.warn('sessionStorage não está disponível.');
       return null;
     }
   }
@@ -43,7 +43,8 @@ export class AuthService {
   }
 
   logout(): void {
-    sessionStorage.removeItem(this.tokenKey); // Remove o token do sessionStorage
+    sessionStorage.removeItem(this.tokenKey);
+    this.authStatus.next(false);
   }
 
   getUserRoles(): string[] {

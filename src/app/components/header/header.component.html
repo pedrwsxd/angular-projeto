@@ -32,12 +32,31 @@
                                     <fa-icon [icon]="faShoppingCart"></fa-icon>
                                 </li>
 
-                                <li>
-                                    <a routerLink="/login" routerLinkActive="active"
-                                    ariaCurrentWhenActive="page">
-                                    <fa-icon [icon]="faUser"></fa-icon>
-                                    </a>
-                                </li>
+
+                                <div *ngIf="!isLoggedIn; else loggedInTemplate" class="user-auth">
+                                    <li>
+                                        <a routerLink="/login" routerLinkActive="active"
+                                            ariaCurrentWhenActive="page">Entrar</a>
+                                    </li>
+
+                                    <li>
+                                        <a routerLink="/signup" routerLinkActive="active"
+                                            ariaCurrentWhenActive="page">Cadastrar-se</a>
+                                    </li>
+                                </div>
+
+                                <ng-template #loggedInTemplate>
+                                    <li *ngIf="isLoggedIn" class="user-menu">
+                                    <a (click)="toggleDropdown()"><fa-icon [icon]="faUser"></fa-icon></a>
+                                    <div *ngIf="dropdownOpen" class="dropdown">
+                                        <a routerLink="/meu-perfil">Meu Perfil</a>
+                                        <a routerLink="/meus-pedidos">Meus Pedidos</a>
+                                        <a (click)="logout()">Sair</a>
+                                    </div>
+                                    </li>
+                                </ng-template>
+
+
                             </ul>
                         </nav>
                     </div>
@@ -50,14 +69,13 @@
                     <img src="assets/img/logo.svg" alt="Logo da IceCream" width="200" height="100">
                 </div>
 
-                <div (click)="toggleMobileMenu()" 
-                class="btn-abrir toggle" id="abrir-menu">
+                <div (click)="toggleMobileMenu()" class="btn-abrir toggle" id="abrir-menu">
                     <img src="assets/img/icon/button/menu.svg" alt="Botão de abrir o menu" height="60" width="70">
                 </div>
             </div>
 
             <div [ngClass]="isMenuOpen ? 'menu-on' : 'menu-off'" class="btn-mobile" id="fechar-menu">
-                <div  (click)="toggleMobileMenu()" class="btn-fechar botão-fechar">
+                <div (click)="toggleMobileMenu()" class="btn-fechar botão-fechar">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                         class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -68,7 +86,7 @@
 
                 </div>
 
-                <nav >
+                <nav>
                     <ul>
                         <li>
                             <a class="botão-fechar" routerLink="/" routerLinkActive="active"

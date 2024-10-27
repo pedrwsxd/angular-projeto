@@ -12,6 +12,7 @@ import { ProdutoAddComponent } from './pages/admin/produto-add/produto-add.compo
 import { adminGuard } from './guard/admin.guard';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { AdminAccessResolver } from './services/adm/admin-access-resolver.service';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 
@@ -22,8 +23,9 @@ const routes: Routes = [
   { path: 'sobre', component: SobreComponent},
   { path: 'cardapio', component: CardapioComponent},
   { path: 'login', component: LoginComponent, },
-  { path: 'admin/gerenciar/produtos', component: AdminCardapioComponent, resolve: { adminAccess: AdminAccessResolver }},
-  { path: 'admin/gerenciar/produtos/cadastrar', component: ProdutoAddComponent, resolve: { adminAccess: AdminAccessResolver }},
+  { path: 'signup', component: SignupComponent,},
+  { path: 'admin/gerenciar/produtos', component: AdminCardapioComponent, canActivate: [adminGuard]},
+  { path: 'admin/gerenciar/produtos/cadastrar', component: ProdutoAddComponent, canActivate: [adminGuard]},
   { path: '', component: InicioComponent},
   {path: '**', redirectTo: ''} 
 ];

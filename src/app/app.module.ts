@@ -23,6 +23,10 @@ import { ProdutoAddComponent } from './pages/admin/produto-add/produto-add.compo
 import { IonicModule } from '@ionic/angular';
 import { AuthInterceptor } from './services/adm/auth-interceptor.service';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -41,9 +45,12 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     AdminCardapioComponent,
     ProdutoAddComponent,
     UnauthorizedComponent
+  
   ],
   imports: [
     PrimaryInputComponent,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     IonicModule,
     ReactiveFormsModule,
     DefaultLoginLayoutComponent,
@@ -53,7 +60,8 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SignupComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
