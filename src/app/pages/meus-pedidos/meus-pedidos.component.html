@@ -1,0 +1,17 @@
+<!-- src/app/pages/meus-pedidos/meus-pedidos.component.html -->
+<div class="meus-pedidos">
+    <h2>Meus Pedidos</h2>
+    <ul *ngFor="let pedido of pedidos">
+      <li>
+        <p>Pedido ID: {{ pedido.id }}</p>
+        <p>Total: {{ pedido.total | currency }}</p>
+        <p>Método de Pagamento: {{ pedido.metodoPagamento }}</p>
+        <ul>
+          <li *ngFor="let item of pedido.produtos">
+            {{ item.produto.nome }} - Quantidade: {{ item.quantidade }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  

@@ -117,4 +117,13 @@
   }
   
 
-
+  .payment-section {
+    margin-top: 20px;
+  }
+  
+  .retirada-aviso {
+    font-size: 0.9em;
+    color: #ff0000; /* Ajuste a cor conforme sua preferência */
+    margin-top: 10px;
+  }
+  

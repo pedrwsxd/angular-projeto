@@ -37,6 +37,21 @@
       Total: R$ {{ calcularTotal() | number: '1.2-2' }}
     </div>
 
+
+    <!-- Escolha de pagamento -->
+<div *ngIf="carrinho.length > 0" class="payment-section">
+  <label for="metodoPagamento">Escolha o método de pagamento:</label>
+  <select id="metodoPagamento" [(ngModel)]="metodoPagamento">
+    <option value="dinheiro">Dinheiro</option>
+    <option value="cartao">Cartão</option>
+    <option value="cartao">PIX</option>
+    <!-- Adicione mais métodos se necessário -->
+  </select>
+</div>
+
+<!-- Aviso de retirada -->
+<p class="retirada-aviso">Este pedido é apenas para retirada.</p>
+
     <div class="cart-actions">
       <button (click)="finalizarCompra()">Finalizar Pedido</button>
     </div>

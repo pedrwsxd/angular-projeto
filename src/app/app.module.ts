@@ -27,6 +27,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MeuPerfilComponent } from './pages/meu-perfil/meu-perfil.component';
+import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
 
 
 
@@ -46,7 +47,8 @@ import { MeuPerfilComponent } from './pages/meu-perfil/meu-perfil.component';
     AdminCardapioComponent,
     ProdutoAddComponent,
     UnauthorizedComponent,
-    MeuPerfilComponent
+    MeuPerfilComponent,
+    MeusPedidosComponent
   
   ],
   imports: [
