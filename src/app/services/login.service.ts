@@ -30,8 +30,8 @@ export class LoginService {
     );
   }
 
-  signup(nome: string, email: string, senha: string) {
-    return this.httpClient.post<LoginResponse>(`${this.apiUrl}/register`, { nome, email, senha }).pipe(
+  signup(nome: string, telefone: string, email: string, senha: string) {
+    return this.httpClient.post<LoginResponse>(`${this.apiUrl}/register`, { nome, telefone, email, senha }).pipe(
       tap(this.handleLoginResponse)
     );
   }

@@ -1,17 +1,51 @@
-<!-- src/app/pages/meus-pedidos/meus-pedidos.component.html -->
-<div class="meus-pedidos">
-    <h2>Meus Pedidos</h2>
-    <ul *ngFor="let pedido of pedidos">
-      <li>
-        <p>Pedido ID: {{ pedido.id }}</p>
-        <p>Total: {{ pedido.total | currency }}</p>
-        <p>Método de Pagamento: {{ pedido.metodoPagamento }}</p>
+<h1 class="titulo">Historico de pedido</h1>
+<div *ngIf="pedidos.length > 0">
+  <div class="container-pedidos">
+
+
+    <div class="container-card-cardapio">
+      <div class="card-cardapio card" *ngFor="let pedido of pedidos">
+
+        <hr class="hr3">
+
         <ul>
-          <li *ngFor="let item of pedido.produtos">
-            {{ item.produto.nome }} - Quantidade: {{ item.quantidade }}
+          <li>
+            <h3>Número do pedido: </h3>
+            <p>{{ pedido.id }}</p>
+          </li>
+          <li>
+            <h3>Cliente: </h3>
+            <p>{{ pedido.clienteNome | titlecase }}</p>
+          </li>
+          <li>
+            <h3>Status: </h3>
+            <p>{{ pedido.status }}</p>
+          </li>
+          <li>
+            <h3>Data: </h3>
+            <p>{{ pedido.dataPedido }}</p>
+          </li>
+          <li>
+            <h3>Método de pagamento: </h3>
+          </li>
+          <li>
+            <h3>Status: </h3>
+            <p>{{ pedido.status }}</p>
+          </li>
+          <li>
+            <h3>Produto(s): </h3>
+            <p>{{ pedido.produtosNomes.join(', ') }}</p>
+
+          </li>
+
+          <li>
+            <h3>Preço: R$ </h3>
+            <p>{{ pedido.total }}</p>
           </li>
         </ul>
-      </li>
-    </ul>
-  </div>
-  
+        
+       <hr class="hr3">
+
+
+      </div>
+    </div>

@@ -11,7 +11,7 @@ export class CartService {
     this.carregarCarrinho();
   }
 
-  // Adicionar ao carrinho
+  
   adicionarAoCarrinho(produto: Produto, quantidade: number): void {
     const itemExistente = this.cart.find(item => item.produto.id === produto.id);
     if (itemExistente) {
@@ -19,34 +19,34 @@ export class CartService {
     } else {
       this.cart.push({ produto, quantidade });
     }
-    this.salvarCarrinho(); // Salva o carrinho sempre que há mudanças
+    this.salvarCarrinho(); 
   }
 
-  // Obter carrinho
+
   obterCarrinho(): { produto: Produto; quantidade: number }[] {
     return this.cart;
   }
 
-  // Remover do carrinho
+ 
   removerDoCarrinho(produto: Produto): void {
     this.cart = this.cart.filter(item => item.produto.id !== produto.id);
     this.salvarCarrinho();
   }
 
-  // Limpar carrinho
+ 
   limparCarrinho(): void {
     this.cart = [];
     this.salvarCarrinho();
   }
 
-  // Salvar carrinho no sessionStorage
+  
   private salvarCarrinho(): void {
     if (typeof window !== 'undefined' && window.sessionStorage) {
       window.sessionStorage.setItem('carrinho', JSON.stringify(this.cart));
     }
   }
 
-  // Carregar carrinho do sessionStorage
+  
   private carregarCarrinho(): void {
     if (typeof window !== 'undefined' && window.sessionStorage) {
       const carrinhoSalvo = window.sessionStorage.getItem('carrinho');

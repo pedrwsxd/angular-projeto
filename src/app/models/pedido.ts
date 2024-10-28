@@ -6,3 +6,13 @@ export interface Pedido {
   metodoPagamento: string;
   total: number;
 }
+
+export interface PedidoDTO {
+  id: number;
+  status: string;
+  dataPedido: Date;
+  clienteNome: string; 
+  produtosNomes: string[];
+  total: number;
+}
+

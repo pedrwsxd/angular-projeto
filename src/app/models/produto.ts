@@ -6,5 +6,5 @@ export interface Produto {
   tipo: string;
   sabor: string;
   ativo: boolean;
-  imagemUrl: string; // Ou pode ser 'number' caso você use 0 ou 1
+  imagemUrl: string; 
 }

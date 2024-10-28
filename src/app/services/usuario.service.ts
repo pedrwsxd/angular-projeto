@@ -10,7 +10,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
-  // Método listar com headers de autorização
+
   listar(): Observable<any[]> {
     const headers = this.getAuthHeaders(); 
     return this.http.get<any[]>(`${this.apiUrl}/listar`, { headers });
@@ -31,9 +31,9 @@ export class UsuarioService {
     return this.http.delete(`${this.apiUrl}/deletar/${id}`, { headers });
   }
 
-  // Método privado para obter os headers de autorização
+  
   private getAuthHeaders(): HttpHeaders {
-    const token = sessionStorage.getItem('token'); // Adapte para o nome da sua chave no Local Storage
+    const token = sessionStorage.getItem('token'); 
     return new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });

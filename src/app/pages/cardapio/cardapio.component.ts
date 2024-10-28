@@ -15,7 +15,7 @@ import Swal from 'sweetalert2'
 export class CardapioComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   
-  produtos$: Observable<Produto[]>; // Utiliza o Observable do serviço
+  produtos$: Observable<Produto[]>; 
   quantidades: { [produtoId: number]: number } = {};
 
   constructor(

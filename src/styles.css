@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap');
 
-
+:root{
+  --font-1: "Sulphur Point";
+  --font-2: "Teko";
+}
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -55,6 +58,7 @@
   }
 
   .button-style1{
+    cursor: pointer;
     color: #FFF;
     box-shadow: 0px 30px 60px -12px rgba(50, 50, 93, 0.25) inset, 0px 18px 36px -18px rgba(0, 0, 0, 0.30) inset;
     margin-top: 40px;
@@ -70,6 +74,7 @@
 }
 
 .button-style2{
+    cursor: pointer;
     color: #FD44BB;
     box-shadow: 0px 30px 60px -12px rgba(50, 50, 93, 0.25) inset, 0px 18px 36px -18px rgba(0, 0, 0, 0.30) inset;
     margin-top: 40px;

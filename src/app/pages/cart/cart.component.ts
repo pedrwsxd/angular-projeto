@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
   carrinho: { produto: Produto; quantidade: number }[] = [];
@@ -41,35 +41,36 @@ export class CartComponent implements OnInit {
   }
 
   async finalizarCompra() {
-    // ... (código anterior) ...
-  
     const clienteId = this.authService.obterIdDoUsuario();
-    const token = this.authService.obterToken(); // Obter o token de autenticação
-  
+    const token = this.authService.obterToken();
+
     if (clienteId === null || token === null) {
-      await this.presentAlert('Não foi possível identificar o cliente ou obter o token de autenticação.');
+      await this.presentAlert(
+        'Não foi possível identificar o cliente ou obter o token de autenticação.'
+      );
       return;
     }
-  
-    const produtosIds = this.carrinho.map(item => item.produto.id);
+
+    const produtosIds = this.carrinho.map((item) => item.produto.id);
     const total = this.calcularTotal();
-  
-    const headers = new HttpHeaders({ // Criar o objeto HttpHeaders
+
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}` // Adicionar o token no cabeçalho
+      Authorization: `Bearer ${token}`,
     });
-  
-    this.pedidoService.criarPedido(clienteId, produtosIds, total, { headers: headers }).subscribe(
-      () => {
-        Swal.fire('Compra finalizada com sucesso!', '', 'success');
-        this.cartService.limparCarrinho();
-        this.router.navigate(['/meus-pedidos']);
-      },
-      (error) => {
-        console.error('Erro ao criar pedido:', error);
-        // Tratar o erro, exibir mensagem para o usuário, etc.
-      }
-    );
+
+    this.pedidoService
+      .criarPedido(clienteId, produtosIds, total, { headers: headers })
+      .subscribe(
+        () => {
+          Swal.fire('Compra finalizada com sucesso!', '', 'success');
+          this.cartService.limparCarrinho();
+          this.router.navigate(['/meus-pedidos']);
+        },
+        (error) => {
+          console.error('Erro ao criar pedido:', error);
+        }
+      );
   }
 
   presentAlert(message: string) {
@@ -77,7 +78,7 @@ export class CartComponent implements OnInit {
       title: 'Atenção',
       text: message,
       icon: 'warning',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'OK',
     });
   }
 
@@ -88,7 +89,7 @@ export class CartComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Sim',
-      cancelButtonText: 'Não'
+      cancelButtonText: 'Não',
     }).then((result) => result.isConfirmed);
   }
 }

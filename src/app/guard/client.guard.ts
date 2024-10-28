@@ -7,7 +7,6 @@ export const clientGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  // Utiliza getUserRoles() para verificar se o usuário tem a role ROLE_CLIENTE
   if (authService.getUserRoles().includes('ROLE_CLIENTE')) {
     return true;
   } else {

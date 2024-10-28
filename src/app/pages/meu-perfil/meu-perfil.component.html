@@ -1,6 +1,6 @@
 <div class="scroll">
     <div class="container">
-        <h1>
+        <h1 class="titulo">
             Meu perfil
         </h1>
         <div class="usuario-card">
@@ -21,9 +21,13 @@
                     <p>{{usuario.telefone}}</p>
                 </li>
             </ul>
+            
             <div class="usuario-actions">
-                <ion-button fill="outline" shape="round" [routerLink]="['/usuarios/listar']"
-                    color="primary">Voltar</ion-button>
+                <button class="button-style1 animacao1" fill="outline" shape="round" [routerLink]="['/']"
+                    color="primary">Voltar  </button>
+
+                    <button class="button-style1 animacao1" fill="outline" shape="round" [routerLink]="['/cardapio']"
+                    color="primary">Cardápio </button>
             </div>
         </div>
     </div>

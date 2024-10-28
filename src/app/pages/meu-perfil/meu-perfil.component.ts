@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {jwtDecode} from 'jwt-decode';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -11,12 +8,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./meu-perfil.component.css']
 })
 export class MeuPerfilComponent implements OnInit {
-  usuario: any = {}; // Armazena as informações do usuário
-  erroCarregamento = false; // Para exibir mensagem de erro, se necessário
+  usuario: any = {};  
+  erroCarregamento = false;  
 
   constructor(
     private usuarioService: UsuarioService,
-    private authService: AuthService // Injeção do AuthService
+    private authService: AuthService  
   ) {}
 
   ngOnInit() {
@@ -24,15 +21,15 @@ export class MeuPerfilComponent implements OnInit {
   }
 
   carregarUsuario() {
-    const userId = this.authService.obterIdDoUsuario(); // Obtém o ID do usuário logado
+    const userId = this.authService.obterIdDoUsuario(); 
     if (userId) {
       this.usuarioService.listarPorId(userId).subscribe(
         (dados: any) => {
-          this.usuario = dados; // Atribui as informações do usuário
+          this.usuario = dados; 
         },
         (error) => {
           console.error("Erro ao carregar usuário:", error);
-          this.erroCarregamento = true; // Sinaliza erro no carregamento
+          this.erroCarregamento = true; 
         }
       );
     } else {

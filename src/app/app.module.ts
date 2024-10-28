@@ -48,7 +48,8 @@ import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.componen
     ProdutoAddComponent,
     UnauthorizedComponent,
     MeuPerfilComponent,
-    MeusPedidosComponent
+    MeusPedidosComponent,
+    
   
   ],
   imports: [

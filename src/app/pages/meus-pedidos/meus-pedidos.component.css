@@ -1,0 +1,86 @@
+.container-pedidos{
+    max-width: 1180px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-pedidos ul li{
+    list-style: none;
+}
+h1{
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    line-height: 1;
+    font-family: 'teko';
+}
+
+h2{
+    font-size: 1.2rem;
+}
+
+h3{
+    color: #575757;
+}
+
+
+p{
+    color: #161616; 
+}
+
+.hr3 {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #CCC, transparent);  
+}
+
+.titulo {
+    color: #FF3CB9;
+    text-align: center;
+    font-family: "Teko";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    padding-top: 90px;
+}
+
+.container-card-cardapio {
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr;
+    justify-content: space-evenly;
+    
+}
+
+.card ul li{
+    display: flex;
+    padding: 5px;
+    list-style: none;
+}
+
+.card ul li p{
+    
+    padding-left: 5px;
+
+}
+
+
+
+.card{
+   border: 2px black;
+   margin: 20px;
+}
+
+
+@media (max-width: 748px) {
+
+    .container-card-cardapio {
+        display: grid;
+        grid-template-columns: 0.1fr;
+        padding: 14px 11px 15px 12px;
+    }
+
+}

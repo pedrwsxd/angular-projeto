@@ -1,12 +1,12 @@
 <div class="cart-container">
   <h2 class="cart-title titulo">Carrinho de Compras</h2>
 
-  <!-- Se o carrinho estiver vazio, exibe uma mensagem -->
+
   <div *ngIf="carrinho.length === 0" class="cart-empty-message">
     O seu carrinho está vazio.
   </div>
 
-  <!-- Lista de itens do carrinho -->
+ 
   <div *ngFor="let item of carrinho" class="cart-item">
     <div class="cart-item-info">
       <img [src]="item.produto.imagemUrl" alt="{{ item.produto.nome }}" />
@@ -16,40 +16,40 @@
       </div>
     </div>
 
-    <!-- Controle da quantidade -->
+  
     <div class="cart-item-quantity">
       <label for="quantidade">Quantidade:</label>
       <input type="number" [(ngModel)]="item.quantidade" min="1" />
     </div>
 
-    <!-- Exibe o preço total por item -->
+  
     <div class="cart-item-price">
       R$ {{ item.produto.preco * item.quantidade | number: '1.2-2' }}
     </div>
 
-    <!-- Botão para remover o item -->
+
     <button class="button-style3 animacao1" (click)="removerDoCarrinho(item.produto)">Remover</button>
   </div>
 
-  <!-- Se o carrinho tiver itens, exibe o total e o botão de finalizar -->
+ 
   <div *ngIf="carrinho.length > 0">
     <div class="cart-total">
       Total: R$ {{ calcularTotal() | number: '1.2-2' }}
     </div>
 
 
-    <!-- Escolha de pagamento -->
+   
 <div *ngIf="carrinho.length > 0" class="payment-section">
   <label for="metodoPagamento">Escolha o método de pagamento:</label>
   <select id="metodoPagamento" [(ngModel)]="metodoPagamento">
     <option value="dinheiro">Dinheiro</option>
     <option value="cartao">Cartão</option>
     <option value="cartao">PIX</option>
-    <!-- Adicione mais métodos se necessário -->
+   
   </select>
 </div>
 
-<!-- Aviso de retirada -->
+
 <p class="retirada-aviso">Este pedido é apenas para retirada.</p>
 
     <div class="cart-actions">
