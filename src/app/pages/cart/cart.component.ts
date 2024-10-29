@@ -1,7 +1,7 @@
 // src/app/pages/cart/cart.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { Produto } from '../../models/produto';
+import { ItemPedido, Produto } from '../../models/produto';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { PedidoService } from '../../services/pedido.service';
@@ -51,8 +51,10 @@ export class CartComponent implements OnInit {
       return;
     }
 
-    const produtosIds = this.carrinho.map((item) => item.produto.id);
-    const total = this.calcularTotal();
+    const itensPedido: ItemPedido[] = this.carrinho.map((item) => ({
+      idProduto: item.produto.id,
+      quantidade: item.quantidade,
+    }));
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -60,7 +62,7 @@ export class CartComponent implements OnInit {
     });
 
     this.pedidoService
-      .criarPedido(clienteId, produtosIds, total, { headers: headers })
+      .criarPedido(clienteId, itensPedido, { headers: headers }) // Passando o array itensPedido
       .subscribe(
         () => {
           Swal.fire('Compra finalizada com sucesso!', '', 'success');
@@ -72,6 +74,7 @@ export class CartComponent implements OnInit {
         }
       );
   }
+
 
   presentAlert(message: string) {
     return Swal.fire({

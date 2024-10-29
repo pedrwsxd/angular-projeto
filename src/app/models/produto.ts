@@ -8,3 +8,8 @@ export interface Produto {
   ativo: boolean;
   imagemUrl: string; 
 }
+
+export interface ItemPedido{
+  idProduto: number;
+  quantidade: number;
+}

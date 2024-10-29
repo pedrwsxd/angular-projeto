@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Pedido, PedidoDTO } from '../models/pedido';
+import { ItemPedido } from '../models/produto';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +19,12 @@ export class PedidoService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   listarMeusPedidos(): Observable<PedidoDTO[]> {
-    const usuarioId = this.authService.obterIdDoUsuario(); // Obtenha o ID do usuário do AuthService
-    if (usuarioId) {
-      return this.http.get<PedidoDTO[]>(`${this.apiUrl}/usuario/${usuarioId}`)
+    const usuarioId = this.authService.obterIdDoUsuario();
+    const token = this.authService.obterToken(); // Método que retorna o token JWT
+  
+    if (usuarioId && token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get<PedidoDTO[]>(`${this.apiUrl}/usuario/${usuarioId}`, { headers })
         .pipe(catchError(this.handleError));
     } else {
       return throwError(() => new Error('Usuário não autenticado.'));
@@ -33,15 +37,12 @@ export class PedidoService {
 
   criarPedido(
     clienteId: number,
-    produtosIds: number[],
-    total: number,
+    itensPedido: ItemPedido[], // Atualizado para receber itensPedido
     options?: { headers: HttpHeaders }
   ): Observable<Pedido> {
-    
     const pedidoData = {
       cliente: clienteId,
-      produtos: produtosIds,
-      total: total,
+      itensPedido: itensPedido, // Atualizado para enviar itensPedido
     };
     return this.http.post<Pedido>(
       `${this.apiUrl}/novopedido`,
@@ -52,18 +53,21 @@ export class PedidoService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
-      
+      // A client-side or network error occurred. Handle it accordingly.
       console.error('Ocorreu um erro:', error.error);
     } else {
-      
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
       console.error(
-        `Backend retornou código ${error.status}, ` +
+        `Backend retornou código ${error.status},   
+ ` +
           `corpo da mensagem: ${error.error}`
       );
     }
-    
+    // Return an observable with a user-facing error message.
     return throwError(
-      () => new Error('Algo deu errado, tente novamente mais tarde.')
+      () => new Error('Algo deu errado, tente novamente mais tarde.')   
+
     );
   }
 }
