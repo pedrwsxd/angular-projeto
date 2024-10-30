@@ -1,0 +1,69 @@
+.produto-edit-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Sulphur Point";
+  }
+  
+  .produto-edit-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .produto-edit-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .produto-edit-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .produto-edit-container input[type="text"],
+  .produto-edit-container input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  .titulo {
+    color: #FF3CB9;
+    text-align: center;
+    font-family: "Teko";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    padding-top: 90px;
+}
+
+  button {
+    width: 100px;
+    height: 70px;
+    cursor: pointer;
+  }
+  
+  .button-style-remover{
+    font-size: 20px;
+  }
+
+  .button-style-remover:hover{
+    box-shadow: none;
+  }
+
+  .button-salvar{
+    color: rgb(0, 197, 0);
+  }
+  .button-salvar:hover{
+    box-shadow: none;
+  }
+
+
+  .options-adm {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    gap: 10px;
+    border: 0px;
+}

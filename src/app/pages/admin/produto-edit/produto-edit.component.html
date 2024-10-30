@@ -1,0 +1,45 @@
+<div class="produto-edit-container">
+    <h2 class="titulo">Editar Produto</h2>
+    <form [formGroup]="produtoForm" (ngSubmit)="atualizarProduto()">
+      <div>
+        <label for="nome">Nome</label>
+        <input id="nome" formControlName="nome" type="text" required />
+      </div>
+  
+      <div>
+        <label for="imagemUrl">URL da Imagem</label>
+        <input id="imagemUrl" formControlName="imagemUrl" type="text" required />
+      </div>
+  
+      <div>
+        <label for="preco">Preço</label>
+        <input id="preco" formControlName="preco" type="number" required />
+      </div>
+  
+      <div>
+        <label for="tipo">Tipo</label>
+        <input id="tipo" formControlName="tipo" type="text" required />
+      </div>
+  
+      <div>
+        <label for="sabor">Sabor</label>
+        <input id="sabor" formControlName="sabor" type="text" required />
+      </div>
+  
+      <div>
+        <label for="quantidade">Quantidade</label>
+        <input id="quantidade" formControlName="quantidade" type="number" required />
+      </div>
+  
+      <div>
+        <label for="ativo">Ativo</label>
+        <input id="ativo" formControlName="ativo" type="checkbox" />
+      </div>
+  
+      <div class="options-adm">
+      <button type="submit"  class="button-style2 animacao1 button-salvar" [disabled]="produtoForm.invalid"><fa-icon [icon]="faCheck"> </fa-icon></button>
+      <button type="button" class="button-style-remover animacao1" (click)="cancelar()"><fa-icon [icon]="faXmark"> </fa-icon></button>
+      </div>
+    </form>
+  </div>
+  

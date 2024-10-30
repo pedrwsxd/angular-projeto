@@ -69,7 +69,8 @@ export class ProdutoService {
       return throwError(() => new Error('Acesso negado: Apenas administradores podem editar produtos.'));
     }
 
-    return this.http.put<Produto>(`${this.apiUrl}/${produtoId}`, produto, { headers: this.getAuthHeaders() }).pipe(
+    return this.http.put<Produto>(`${this.apiUrl}/atualizar/${produtoId}`, produto, { headers: this.getAuthHeaders() })
+    .pipe(
       tap(produtoEditado => {
         const produtos = this.produtosSubject.value.map(p => p.id === produtoId ? produtoEditado : p);
         this.produtosSubject.next(produtos);

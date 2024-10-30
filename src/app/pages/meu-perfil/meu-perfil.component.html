@@ -1,33 +1,51 @@
 <div class="scroll">
     <div class="container">
-        <h1 class="titulo">
-            Meu perfil
-        </h1>
-        <div class="usuario-card">
-            <ul>
-                <li>
-                    <h3>Nome Completo: </h3>
-                    <p>{{ usuario.nome | titlecase }}</p>
-                </li>
-                <li>
-                    <h2>Informações pessoais</h2>
-                </li>
-                <li>
-                    <h3>Email: </h3>
-                    <p>{{usuario.email}}</p>
-                </li>
-                <li>
-                    <h3>Telefone: </h3>
-                    <p>{{usuario.telefone}}</p>
-                </li>
-            </ul>
-            
-            <div class="usuario-actions">
-                <button class="button-style1 animacao1" fill="outline" shape="round" [routerLink]="['/']"
-                    color="primary">Voltar  </button>
-
-                    <button class="button-style1 animacao1" fill="outline" shape="round" [routerLink]="['/cardapio']"
-                    color="primary">Cardápio </button>
+      
+      <h1 class="titulo">
+        Meu perfil
+      </h1>
+      <div class="usuario-card">
+        
+        <ul>
+          <li>
+            <h2>Informações pessoais</h2>
+          </li>
+          <li>
+            <h3>Nome Completo: </h3>
+            <div *ngIf="!editando">
+              <p>{{ usuario.nome | titlecase }}</p>
             </div>
+            <div *ngIf="editando">
+              <input type="text" [(ngModel)]="usuario.nome" />
+            </div>
+          </li>
+          <li>
+            <h3>Email: </h3>
+            <div *ngIf="!editando">
+              <p>{{ usuario.email }}</p>
+            </div>
+            <div *ngIf="editando">
+              <input type="email" [(ngModel)]="usuario.email" />
+            </div>
+          </li>
+          <li>
+            <h3>Telefone: </h3>
+            <div *ngIf="!editando">
+              <p>{{ usuario.telefone }}</p>
+            </div>
+            <div *ngIf="editando">
+              <input type="tel" [(ngModel)]="usuario.telefone" />
+            </div>
+          </li>
+        </ul>
+  
+        <div class="usuario-actions">
+          <button class="button-style1 animacao1" fill="outline" shape="round" [routerLink]="['/']" color="primary">Voltar</button>
+          <button *ngIf="!editando" class="button-style1 animacao1" (click)="editarUsuario()">Editar</button>
+          <button *ngIf="editando" class="button-style1 animacao1" (click)="salvarUsuario()">Salvar</button>
+          <button *ngIf="editando" class="button-style1 animacao1" (click)="cancelarEdicao()">Cancelar</button>
         </div>
     </div>
+    <button class="button-style1 animacao1" fill="outline" shape="round" [routerLink]="['/cardapio']" color="primary">Cardápio</button>
+    </div>
+  </div>

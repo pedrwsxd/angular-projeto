@@ -6,7 +6,10 @@
       <div class="titulo-cardapio">
         <h1 class="titulo">Administração do Cardápio</h1>
 
-        <button class="button-style2 button-add animacao1" (click)="adicionarProduto()">Adicionar Produto</button>
+        <button class="button-style2 button-add animacao1" (click)="adicionarProduto()">
+          <fa-icon [icon]="faPlus"> </fa-icon>
+          Adicionar Produto
+        </button>
         </div>
         
         <div class="container-card-cardapio">
@@ -22,9 +25,10 @@
                 </div>
                 
               </div>
-              
-              <button class="button-style1 animacao1" (click)="deletarProduto(produto.id)">Deletar</button>
-                                    
+              <div class="options-adm">
+              <button class="button-style-remover animacao1 button-deletar" (click)="deletarProduto(produto.id)">Remover</button>
+              <button class="button-style2 animacao1 button-editar" (click)=" editarProduto(produto.id)">Editar</button>                      
+              </div>
             </div>
             
         </div>

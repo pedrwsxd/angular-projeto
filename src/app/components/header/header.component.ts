@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCrown, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -18,10 +18,11 @@ export class HeaderComponent implements OnInit{
 toggleMobileMenu() {
   this.isMenuOpen = !this.isMenuOpen;
 }
-
+  isAdmin: boolean = false;
   exibirIconeCarrinho: boolean = false;
   faShoppingCart = faShoppingCart;
   faUser = faUser;
+  faCrown = faCrown;
   menuVisible: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined;
 
   constructor(
@@ -34,6 +35,8 @@ toggleMobileMenu() {
   }
 
   ngOnInit() {
+
+    this.isAdmin = this.authService.isAdmin();
     // Verifica o estado de autenticação no início
     this.isLoggedIn = this.authService.isAuthenticated();
 
@@ -66,5 +69,9 @@ toggleMobileMenu() {
   }
   goToCarrinho() {
     this.router.navigate(['/carrinho']); 
+  }
+
+  navigateToAdminPage(): void {
+    this.router.navigate(['/admin/gerenciar/produtos']);
   }
 }

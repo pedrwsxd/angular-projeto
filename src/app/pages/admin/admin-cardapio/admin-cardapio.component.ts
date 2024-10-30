@@ -3,6 +3,7 @@ import { Produto } from '../../../models/produto';
 import { ProdutoService } from '../../../services/produto.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-admin-cardapio',
@@ -10,6 +11,8 @@ import Swal from 'sweetalert2'
   styleUrl: './admin-cardapio.component.css'
 })
 export class AdminCardapioComponent {
+  faPlus = faPlus;
+
   produtos: Produto[] = [];
 
   constructor(

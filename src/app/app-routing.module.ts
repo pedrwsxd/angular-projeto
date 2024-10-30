@@ -16,6 +16,7 @@ import { adminGuard } from './guard/admin.guard';
 import { authGuard } from './guard/auth.guard';
 import { MeuPerfilComponent } from './pages/meu-perfil/meu-perfil.component';
 import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
+import { ProdutoEditComponent } from './pages/admin/produto-edit/produto-edit.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent,},
   { path: 'admin/gerenciar/produtos', component: AdminCardapioComponent},
   { path: 'admin/gerenciar/produtos/cadastrar', component: ProdutoAddComponent},
+  { path: 'admin/gerenciar/produtos/editar/:id', component: ProdutoEditComponent},
   { path: 'meu-perfil', component: MeuPerfilComponent},
   { path: 'meus-pedidos', component: MeusPedidosComponent },
   { path: '', component: InicioComponent},

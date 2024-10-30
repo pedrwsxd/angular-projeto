@@ -83,9 +83,23 @@
     display: grid;
     grid-template-columns: 0.2fr 0.2fr;
     justify-content: space-evenly;
-    
+
 }
 
+.options-adm {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    gap: 5px;
+}
+
+.button-deletar {
+    height: 50px;
+}
+
+.button-editar {
+    height: 50px;
+}
 
 
 .img-cadapio {
@@ -127,15 +141,15 @@ input[type="number"]:focus {
     outline: none;
 }
 
-.button-add{
-  height: 90px;
-  margin-bottom: 60px;
+.button-add {
+    height: 90px;
+    margin-bottom: 60px;
 }
 
-.cart{
+.cart {
     margin-bottom: 100px;
     width: 300px;
-    height: 70px;   
+    height: 70px;
 }
 
 @media (max-width: 748px) {

@@ -23,7 +23,8 @@ export class UsuarioService {
 
   atualizar(usuario: any): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.put(`${this.apiUrl}/atualizar`, usuario, { headers });
+    const url = `${this.apiUrl}/atualizar/${usuario.id}`; 
+    return this.http.put(url, usuario, { headers });
   }
 
   excluir(id: number): Observable<any> {

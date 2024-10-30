@@ -31,6 +31,14 @@
                                     <fa-icon [icon]="faShoppingCart"></fa-icon>
                                 </li>
 
+                                <li>
+                                    <ng-container *ngIf="isAdmin">
+                                        <a (click)="navigateToAdminPage()">
+                                          <fa-icon [icon]="faCrown" title="Administração">Admin</fa-icon>
+                                    </a>
+                                      </ng-container>
+                                </li>
+
 
                                 <div *ngIf="!isLoggedIn; else loggedInTemplate" class="user-auth">
                                     <li>
