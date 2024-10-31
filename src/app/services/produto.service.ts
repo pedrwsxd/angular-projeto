@@ -9,7 +9,7 @@ import {jwtDecode} from 'jwt-decode';
   providedIn: 'root',
 })
 export class ProdutoService {
-  private readonly apiUrl = 'http://localhost:8080/produtos';
+  private readonly apiUrl = 'http://api-foodtruck.pedrohenrick.com.br:8080/produtos';
   private produtosSubject = new BehaviorSubject<Produto[]>([]);
   produtos$ = this.produtosSubject.asObservable();
 

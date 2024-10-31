@@ -14,7 +14,7 @@ import { ItemPedido } from '../models/produto';
   providedIn: 'root',
 })
 export class PedidoService {
-  private readonly apiUrl = 'http://localhost:8080/pedidos';
+  private readonly apiUrl = 'http://api-foodtruck.pedrohenrick.com.br:8080/pedidos';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
