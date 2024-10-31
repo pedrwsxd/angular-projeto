@@ -7,7 +7,7 @@ import {jwtDecode} from "jwt-decode";
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:8080/auth/login'; 
+  private readonly apiUrl = 'https://api-foodtruck.pedrohenrick.com.br:8080/auth/login'; 
   private readonly tokenKey = 'token'; 
   authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
 
