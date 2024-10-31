@@ -41,7 +41,11 @@ export class CardapioComponent implements OnInit {
 
       this.presentAlert(quantidade, produto.nome)
     } else {
-      alert('A quantidade deve ser maior que 0.');
+      Swal.fire({
+        title: `A quantidade deve ser maior que 0.`,
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      })
     }
   }
 
