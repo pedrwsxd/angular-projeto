@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'https://api-foodtruck.pedrohenrick.com.br:8080/usuarios';
+  private apiUrl = 'https://api-foodtruck.pedrohenrick.com.br/usuarios';
 
   constructor(private http: HttpClient) {}
 

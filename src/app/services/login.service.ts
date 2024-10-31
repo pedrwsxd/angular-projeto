@@ -8,7 +8,7 @@ import { LoginResponse } from '../types/login-response.type';
 })
 export class LoginService {
 
-  apiUrl: string = "https://api-foodtruck.pedrohenrick.com.br:8080/auth";
+  apiUrl: string = "https://api-foodtruck.pedrohenrick.com.br/auth";
 
   constructor(private httpClient: HttpClient) { }
 
