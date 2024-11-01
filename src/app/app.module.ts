@@ -21,7 +21,6 @@ import { RouterModule } from '@angular/router';
 import { AdminCardapioComponent } from './pages/admin/admin-cardapio/admin-cardapio.component';
 import { ProdutoAddComponent } from './pages/admin/produto-add/produto-add.component';
 import { IonicModule } from '@ionic/angular';
-import { AuthInterceptor } from './services/adm/auth-interceptor.service';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -72,12 +71,6 @@ import { ProdutoEditComponent } from './pages/admin/produto-edit/produto-edit.co
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    { 
-      provide: HTTP_INTERCEPTORS, 
-      useClass: AuthInterceptor, 
-      multi: true 
-    },
-    
     provideClientHydration(),
     CartService
     

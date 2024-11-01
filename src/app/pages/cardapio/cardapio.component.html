@@ -1,43 +1,39 @@
 <section id="cardapio" class="cardapio">
-    
     <div class="container-cardapio">
-        <div class="titulo-cardapio">
-            <h1 class="titulo">Cardápio</h1>
-            <p class="sub-titulo">Delícias Crocantes e Geladas Para Todos os Gostos!</p>
-        </div>
-        
-        <div class="container-card-cardapio">
-            <div class="card-cardapio card" *ngFor="let produto of produtos$ | async">
-                <h1 class="nome-produto">{{ produto.nome }}</h1>
-                <img class="style-card-c" src="{{ produto.imagemUrl }}" alt="Foto do Cardápio">
-                <div class="card-descricao">
-                    <div class="lado-esquerdo-descricao">
-                    <h2> Preço: {{ produto.preco | currency:'BRL' }}</h2>
-                    <h3>Tipo: {{ produto.tipo }}</h3>
-                    <h3>Sabor: {{ produto.sabor }}</h3>
-                </div>
-                
-                <div class="lado-direito-descricao">
-                    <label for="quantidade">Quantidade:</label>
-                    <input type="number" [(ngModel)]="quantidades[produto.id]" min="0" />
-                </div>
+      <div class="titulo-cardapio">
+        <h1 class="titulo">Cardápio</h1>
+        <p class="sub-titulo">Delícias Crocantes e Geladas Para Todos os Gostos!</p>
+      </div>
+  
+      <div class="container-card-cardapio">
+        <div class="card-cardapio card" *ngFor="let produto of produtos">
+          <h1 class="nome-produto">{{ produto.nome }}</h1>
+          <img class="style-card-c" [src]="produto.imagemUrl" alt="Foto do Cardápio">
+          <div class="card-descricao">
+            <div class="lado-esquerdo-descricao">
+              <h2>Preço: {{ produto.preco | currency:'BRL' }}</h2>
+              <h3>Tipo: {{ produto.tipo }}</h3>
+              <h3>Sabor: {{ produto.sabor }}</h3>
             </div>
-                       
-            <button (click)="adicionarAoCarrinho(produto)" class="button-style1 animacao1 botao-adicionar-carrinho">Adicionar ao
-                Carrinho</button>                
+  
+            <div class="lado-direito-descricao">
+              <label for="quantidade">Quantidade:</label>
+              <input type="number" [(ngModel)]="quantidades[produto.id]" min="0" />
             </div>
-            
+          </div>
+  
+          <button (click)="adicionarAoCarrinho(produto)" class="button-style1 animacao1 botao-adicionar-carrinho">
+            Adicionar ao Carrinho
+          </button>
         </div>
-        <a (click)="goToCarrinho()" class="cart-icon">
-            <button class="button-style2 animacao1 cart">
-                <fa-icon [icon]="faShoppingCart"></fa-icon>
-                Ir para o Carrinho
-            </button>
-        </a>
-        </div>
-
-
-
-        
-
-</section>
+      </div>
+  
+      <a (click)="goToCarrinho()" class="cart-icon">
+        <button class="button-style2 animacao1 cart">
+          <fa-icon [icon]="faShoppingCart"></fa-icon>
+          Ir para o Carrinho
+        </button>
+      </a>
+    </div>
+  </section>
+  
