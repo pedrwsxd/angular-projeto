@@ -38,7 +38,7 @@ export class AdminCardapioComponent {
     this.router.navigate(['admin/gerenciar/produtos/editar', id]);
   }
 
-  deletarProduto(id: number) {
+  excluir(id: number) {
     
     this.presentAlert(id);
 
@@ -54,7 +54,7 @@ export class AdminCardapioComponent {
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if (result.isConfirmed) {
-      this.produtoService.deletarProduto(id).subscribe(() => {
+      this.produtoService.excluir(id).subscribe(() => {
         this.carregarProdutos();
         Swal.fire('Excluído!', 'O produto foi excluído.', 'success');
       });
