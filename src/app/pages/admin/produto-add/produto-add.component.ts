@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-produto-add',
   templateUrl: './produto-add.component.html',
-  styleUrl: './produto-add.component.css'
+  styleUrls: ['./produto-add.component.css']
 })
 export class ProdutoAddComponent {
   produto: Produto = {
@@ -26,7 +26,7 @@ export class ProdutoAddComponent {
   ) {}
 
   salvarProduto() {
-    this.produtoService.adicionarProduto(this.produto).subscribe(() => {
+    this.produtoService.adicionar(this.produto).subscribe(() => {
       this.router.navigate(['admin/gerenciar/produtos']);
     });
   }

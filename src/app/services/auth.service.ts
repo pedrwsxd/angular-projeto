@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import {jwtDecode} from "jwt-decode"; 
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = 'https://api-foodtruck.pedrohenrick.com.br/auth/login'; 
-  private readonly tokenKey = 'token'; 
+  private apiUrl = `${environment.apiUrl}/auth/login`; 
+  private tokenKey = 'token'; 
   authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
 
   constructor(private http: HttpClient) { }

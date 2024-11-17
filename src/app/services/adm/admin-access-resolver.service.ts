@@ -13,7 +13,7 @@ export class AdminAccessResolver implements Resolve<boolean> {
     return this.authService.isAdminAsync().pipe(
       map(isAdmin => {
         if (!isAdmin) {
-          this.router.navigate(['unauthorized']); // Redireciona caso não seja admin
+          this.router.navigate(['unauthorized']); 
           return false;
         }
         return true;

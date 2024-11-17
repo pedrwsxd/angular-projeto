@@ -9,12 +9,13 @@ import {
 import { catchError, Observable, throwError } from 'rxjs';
 import { Pedido, PedidoDTO } from '../models/pedido';
 import { ItemPedido } from '../models/produto';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PedidoService {
-  private readonly apiUrl = 'https://api-foodtruck.pedrohenrick.com.br/pedidos';
+  private apiUrl = `${environment.apiUrl}/pedidos`;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

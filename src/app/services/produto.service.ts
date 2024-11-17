@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Produto } from '../models/produto';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProdutoService {
-  private readonly apiUrl = 'https://api-foodtruck.pedrohenrick.com.br/produtos';
+  private apiUrl = `${environment.apiUrl}/produtos`;
 
   constructor(private http: HttpClient) {}
 
@@ -41,7 +42,7 @@ export class ProdutoService {
 
   excluir(id: number): Observable<void> {
     const headers = this.getAuthHeaders();
-    return this.http.delete<void>(`${this.apiUrl}/deletar/${id}`, { headers }).pipe(
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers }).pipe(
       catchError(this.handleError)
     );
   }

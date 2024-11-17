@@ -3,14 +3,14 @@ import { ProdutoService } from '../../../services/produto.service';
 import { Produto } from '../../../models/produto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faCheck, faX, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-produto-edit',
   templateUrl: './produto-edit.component.html',
-  styleUrl: './produto-edit.component.css'
+  styleUrls: ['./produto-edit.component.css']
 })
-export class ProdutoEditComponent  implements OnInit {
+export class ProdutoEditComponent implements OnInit {
   
   faCheck = faCheck;
   faXmark = faXmark;
@@ -28,10 +28,10 @@ export class ProdutoEditComponent  implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
-    // Obter o ID do produto da rota
-    this.produtoId = Number(this.route.snapshot.paramMap.get('id'));
 
-    // Inicializar o formulário
+    this.produtoId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log('Produto ID:', this.produtoId); // Log para verificar o ID
+
     this.produtoForm = this.fb.group({
       nome: ['', Validators.required],
       imagemUrl: ['', Validators.required],
@@ -43,12 +43,19 @@ export class ProdutoEditComponent  implements OnInit {
     });
 
     // Carregar os dados do produto
-    this.produtoService.produtos$.subscribe(produtos => {
-      const produto = produtos.find(p => p.id === this.produtoId);
-      if (produto) {
-        this.produtoForm.patchValue(produto); // Preencher o formulário com os dados do produto
+    this.produtoService.listarPorId(this.produtoId).subscribe(
+      produto => {
+        if (produto) {
+          console.log('Produto carregado:', produto); // Log para verificar os dados do produto
+          this.produtoForm.patchValue(produto); // Preencher o formulário com os dados do produto
+        } else {
+          console.error('Produto não encontrado');
+        }
+      },
+      error => {
+        console.error('Erro ao carregar o produto:', error);
       }
-    });
+    );
   }
 
   // Função para atualizar o produto
@@ -60,7 +67,7 @@ export class ProdutoEditComponent  implements OnInit {
       };
 
       // Chama o método do serviço para editar o produto
-      this.produtoService.editarProduto(this.produtoId, produtoAtualizado).subscribe(
+      this.produtoService.atualizar(produtoAtualizado).subscribe(
         () => {
           alert('Produto atualizado com sucesso!');
           this.router.navigate(['/admin/gerenciar/produtos']); // Navegar de volta para a lista de produtos
