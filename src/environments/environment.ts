@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080',
+  apiUrl: 'https://api-foodtruck.pedrohenrick.com.br',
 };
 
 // private readonly apiUrl = 'https://api-foodtruck.pedrohenrick.com.br';
+//http://localhost:8080
